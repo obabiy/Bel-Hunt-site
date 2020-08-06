@@ -1,0 +1,15 @@
+#defaultTitleContainer{
+    width: 100%;
+
+    font-family: Mariupol;
+    font-size: 2.2rem;
+    color: black;
+    
+    border: 1px solid green;
+    
+    margin-bottom: 40px;
+}
+
+#defaultTitleContainer span{
+    font-weight: bold;
+}

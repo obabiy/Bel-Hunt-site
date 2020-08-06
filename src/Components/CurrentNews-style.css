@@ -1,4 +1,4 @@
-#animalContent{
+#newsContent{
     width: 750px;
 
     border: 1px solid black;
@@ -19,18 +19,6 @@
 
     color: #666666;
     
-    margin-bottom: 40px;
-}
-
-#galleryContainer{
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    border: 1px solid green;
-
     margin-bottom: 40px;
 }
 

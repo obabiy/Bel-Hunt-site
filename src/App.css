@@ -1,7 +1,30 @@
+body{
+  overflow-x: hidden;
+}
+
 #siteContainer{
   display: flex;
   flex-direction: column;
   align-items: center;
 
   width: 100%;
+
+}
+
+#scrollTop{
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+
+  border: 1px solid grey;
+  outline: none;
+
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
 }

@@ -4,13 +4,14 @@ import './TitleContent-style.css'
 
 export default function TitleContent(props){
     
-    const[boldPart, setBoldPart] = useState(props.boldPart)
-    const[remainingText, setRemainingText] = useState(props.remainingText)
-
-    const[typeOfTitle, setTypeOfTitle] = useState(props.typeOfTitle);
+    const[boldTitlePart, setBoldTitlePart] = useState(props.boldTitlePart)
+    const[remainingTitlePart, setRemainingTitleText] = useState(props.remainingTitlePart)
+    const[descriptionTitlePart, setDescriptionTitleText] = useState(props.descriptionTitlePart)
     
     return(
-        {typeOfTitle == 'firts' &&
-        }
+        <div id = 'titleContent'>
+            <span id = "mainTitle"><span>{boldTitlePart}</span> {remainingTitlePart}</span>
+            <span id = "descriptionTitle">{descriptionTitlePart}</span>
+        </div>
     );
 }

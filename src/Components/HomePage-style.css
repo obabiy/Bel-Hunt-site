@@ -1,0 +1,253 @@
+*{
+    font-family: Mariupol;
+}
+
+
+#homePageContainer{
+    width: 1366px;
+
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    border: 1px solid green;
+
+    margin-bottom: 40px;
+}
+
+#galleriesBlock{
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+
+    padding: 0 6% 0 6%;
+    box-sizing: border-box;
+}
+
+.gallery{
+    width: 45%;
+    height: 340px;
+
+    border: 1px solid green;
+}
+
+.fadeBlock span{
+    position: absolute;
+    top: 80%;
+    left: 25px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    color: white;
+}
+
+.fadeBlock{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6)20%, rgba(0, 0, 0, 0.0)70%);
+}
+
+#descriptionText{
+    max-width: 770px;
+    margin-bottom: 40px;
+
+    color:#666666;
+
+    border: 1px solid grey;
+}
+
+#topTransition{
+    margin-bottom: -2px;
+}
+
+#bottomTransition{
+    margin-top: -2px;
+}
+
+#animalNavContainer{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    
+    background: #F0F0F0;
+
+    
+    padding: 40px 6% 60px 6%;
+    box-sizing: border-box;
+}
+
+.titleNav{
+    width: 100%;
+    color: #000;
+    font-size: 2.2rem;
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.titleNav span{
+    font-weight: bold;
+}
+
+#animalNavBlockContainer{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.navPart{
+    width: 49%;
+
+    border: 1px solid black;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.navCard1{
+    width: 100%;
+    height: 260px;
+
+    border: 1px solid grey;
+    margin-bottom: 10px;
+}
+
+.navCard2{
+    width: 48%;
+    height: 260px;
+
+    border: 1px solid grey;
+    margin-bottom: 10px;
+}
+
+#huntingNewsContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 80px 0;
+     
+    padding: 0 6% 0 6%;
+    box-sizing: border-box;
+}
+
+.buttonMore{
+    width: 20%;
+    height: 50px;
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: Mariupol;
+    font-size: 1rem;
+    font-weight: lighter;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    outline: none;
+}
+
+#moreNews{
+    background: #309B1F;
+    color: white;
+}
+
+#newsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.transition{
+    width: 1366px;
+}
+
+#feedbackForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #F0F0F0;
+
+    padding: 50px 0 170px 0;
+
+    margin-bottom: -140px;
+}
+
+#inputBlock{
+    width: 600px;
+    height: 50px;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+#titleFeedback{
+    font-size: 2.2rem;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10px;
+}
+
+#descriptionFeedback{
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+#feedbackForm input{
+    width: 360px;
+    border: 1px solid #E5E5E5;
+
+    outline: none;
+
+    padding-left: 20px;
+}
+
+#feedbackForm button{
+    width: 180px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+
+    background: #309B1F;
+
+    font-family: Mariupol;
+    font-size: 1rem;
+    font-weight: lighter;
+
+    color: white;
+}
+
+@media screen and (max-width: 1366px){
+    #homePageContainer{
+        width: 100%;
+    }
+    .transition{
+        width: 100%;
+    }
+}

@@ -1,0 +1,41 @@
+#doubleTitleContainer{
+    max-width: 100%;
+
+    font-family: Mariupol;
+    
+    border: 1px solid green;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 40px;
+
+    padding: 0 6% 0 6%;
+    box-sizing: border-box;
+}
+
+.titleParts{
+    height: 100%;
+    width: 45%;
+    
+
+    color: #000
+
+
+}
+
+#firstPart{
+    font-size: 2.2rem;
+}
+
+#firstPart span{
+    font-weight: bold;
+}
+
+#secondPart{
+    font-size: 1.2rem;
+}
+
+#secondPart span{
+    color: #309B1F;
+}

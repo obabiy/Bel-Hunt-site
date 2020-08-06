@@ -1,0 +1,17 @@
+#contactsBlock{
+    width: 100%;
+    color: #666666;
+    font-family: Mariupol;
+    
+    text-align: center;
+    line-height: 2.2rem;
+
+    margin-bottom: 40px;
+}
+
+#contactsBlock span{
+    font-weight: bold;
+    font-size: 2.2rem;
+
+    color: black;
+}

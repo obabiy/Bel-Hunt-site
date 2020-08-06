@@ -1,0 +1,145 @@
+#pricesContainer{
+    max-width: 1366px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 6% 0 6%;
+    box-sizing: border-box;
+}
+
+#titleBlock{
+    width: 100%;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    margin: 30px 0;
+
+}
+
+.pricesPart{
+    width: 100%;
+    height: auto;
+    /* 80   */
+    border: 1px solid #E9E9E9;
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+    padding: 30px;
+
+    box-sizing: border-box;
+
+}
+
+.information{
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color:#666;
+}
+
+.information span{
+    font-weight: bold;
+    color: black;
+    line-height: 30px;
+}
+
+#text{
+    display: inline-block;
+    width: 90%;
+    vertical-align: top;
+}
+
+#text li{
+    margin: 10px 0 -15px 0;
+    color: #666;
+}
+
+#text li:before{
+    color: #666;
+}
+
+.vectorButton{
+    margin-top: 8px;
+}
+
+.titlePricesPart ~ ul, .information, .pricesWeights{
+    display: none;
+}
+
+.pricesPart ul{
+    padding: 0;
+    margin-top: 40px;
+
+    font-size: 1rem;
+    color: #666;
+}
+
+.pricesPart li{
+   padding: 0 0 20px;
+   list-style-type: none;
+}
+
+.pricesPart li:before{
+    color: #309B1F;
+    content: '•';
+    margin-right: 20px;
+}
+
+#price{
+    font-weight: bold;
+}
+
+.titlePricesPart{
+    width: 100%;
+
+    color: #1F1F1F;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pricesWeights{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    margin: 30px 0;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.line{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+
+    position: relative;
+}
+
+.line span{
+    position: absolute;
+    left: 55%;
+    color: black;
+
+}
+
+.grey{
+    background: #F0F0F0;
+}
+
+.white{
+    background: white;
+}
+
+@media screen and (max-width: 1400px){
+    #pricesContainer{
+        width: 100%;
+    }
+}
