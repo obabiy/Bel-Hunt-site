@@ -1,8 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router , Route, Switch, Link, useLocation, useRouteMatch, useParams } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-
-import FileUploader from 'react-firebase-file-uploader'
+import { BrowserRouter as Router , Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -12,10 +9,8 @@ import Footer from './Components/Footer'
 import HomePage from './Components/HomePage'
 import CurrentAnimalContent from './Components/CurrentAnimalContent'
 import Prices from './Components/Prices'
-import NewsPage from './Components/NewsPage'
-import CurrentNews from './Components/CurrentNews'
 import GalleryComponent from './Components/GalleryComponent'
-import AdminPanel from './Components/AdminPanel'
+import AdminPanel from './Components/AdminPanel/AdminPanel'
 
 // ReactDOM.render((
 //   <Router>
@@ -94,14 +89,6 @@ export default function App(){
         <Route path = '/prices'>
           <Prices/>
         </Route>     
-          
-        <Route path = '/news'>
-          <NewsPage/>
-        </Route>
-            
-        <Route exact path = "/news:title">
-          <CurrentNews imgSrc = 'https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/newsImg%2F1079.jpg?alt=media&token=b6cbd2cc-7947-42ef-88fb-7463f908b8f5' titlePart = "dadadasdad" textContent = "lorem30dfdjj dfbgjsdfbjgbjdf dfjbgjdbfsbg gjdfjgdbshgb jhdbjgbdjfbg jdjgbdjbgjdbfgjd dfbgjdbfjgbsdj jdfjgdfbgjbdf jdfgjdf g hdj fg dfgj dfgjsd gdfgjsg jdf gjsdfgdfjghdgj dgjds gjdfg djfs gjdf gdsjdasdasdasdassdfnsjkfsjknfsjkdnfksdn"/>
-        </Route>
 
         <Route path = "/galleryTrophy">
           {

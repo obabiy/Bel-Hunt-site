@@ -1,9 +1,7 @@
 #adminPanelBlock{
     width: 100%;
-    height: 100%;
     border: 1px solid green;
     display: flex;
-    align-items: stretch;
 }
 
 #navBarAdmin{
@@ -29,19 +27,19 @@
 }
 
 #navBarAdmin a:hover{
-    width: 100%;
+    width: 97%;
     transition: 0.2s;
 }
 
 #navBarAdmin a{
     text-decoration: none;
     color: white;
-    width: 97%;
+    width: 95%;
     margin-bottom: 10px;
 }
 
 #controlBlock{
-    width: 90%;
+    width: 70%;
     border: 1px solid red;
 
     display: flex;

@@ -19,12 +19,6 @@ export default function AdminPanel(){
                     <Route path = "/admin/:type">  
                         <AdminPanelControlNavCRUD/>
                     </Route>
-                    {/* <Route path = "/admin/galleries">  
-                        <AdminPanelControlNavCRUD/>
-                    </Route>
-                    <Route path = "/admin/news">  
-                        <AdminPanelControlNavCRUD/>
-                    </Route> */}
                 </Switch>
             </div>
         </div>

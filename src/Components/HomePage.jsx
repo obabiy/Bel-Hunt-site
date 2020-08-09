@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './HomePage-style.css'
 
 import DoublePartTitle from './DoublePartTitle'
 import NewsCardHomePage from './NewsCardHomePage'
 
+import db from '../firebase'
+
 export default function HomePage(){
+
+    const [news, setNews] = useState([]);
+    const [visibleNews, setVisibleNews] = useState([])
+    
+    useEffect(() => {
+        
+        db.collection('news')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot( snapshot => {
+                setNews(snapshot.docs.map(doc => ({
+                    title: doc.data().title,
+                    text: doc.data().text,
+                    id: doc.id
+                })))
+            })
+        
+    },[])
+
+    useEffect(() => {
+        setVisibleNews(news.slice(0,3))
+    }, [news]);
+
+    
+    
     return(
         <div id = 'homePageContainer'>
             <DoublePartTitle firstPartBold = "Охотимся на живность" firstPartNormal = " на территории Белоруссии" secondPartNormal = "Добро пожаловать на наш сайт, посвященный организации охотничьих туров на " secondPartColored = "территории Белоруссии."/>
@@ -27,10 +53,9 @@ export default function HomePage(){
                 За годы работы в сфере охотничьего туризма был накоплен уникальный опыт, который наряду с самой обширной базой контактов с охотничьими хозяйствами и Национальными Парками позволяет составлять и реализовывать программы охот, максимально соответствующие запросам клиентов.
             </div>
 
-            
-            
 
             <img className = 'transition' id = 'topTransition' src = './img/top-transition.png'/>    
+
             <div id = "animalNavContainer">
                 <div className = 'titleNav'>На кого <span>охотимся?</span></div>
                 <div id = 'animalNavBlockContainer'>
@@ -93,12 +118,15 @@ export default function HomePage(){
 
             <div id = "huntingNewsContainer">
                 <div className = 'titleNav'><span>Охотничьи</span> новости</div>
-                {/* <div id = "newsContainer">
-                    <NewsCardHomePage imgSrc = "./img/card9.jpg" title = "Организация охоты на лося" description = "Каковы правила охоты в Болгарии? На какую дичь, кому и когда тут можно охотиться?" />
-                    <NewsCardHomePage imgSrc = "./img/card10.jpg" title = "Охота в Болгарии" description = "Каковы правила охоты в Болгарии? На какую дичь, кому и когда тут можно охотиться?"/>
-                    <NewsCardHomePage imgSrc = "img/card11.jpg" title = "Особенности охоты" description = "Каковы правила охоты в Болгарии? На какую дичь, кому и когда тут можно охотиться?"/>
-                </div> */}
-                <button className = "buttonMore" id = "moreNews"><img src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2Fshoot-icon.svg?alt=media&token=5f8b030b-8592-49e4-9da1-b3e70993dd6e"/><span>Больше новостей</span></button>
+            
+                <div id = "newsContainer">
+                {   
+                    visibleNews.map(oneNews => (
+                        <NewsCardHomePage title={oneNews.title} text={oneNews.text}/>
+                    ))
+                }
+                </div>
+            
             </div>
             
             <img className = 'transition' src = './img/top-transition.png'/>

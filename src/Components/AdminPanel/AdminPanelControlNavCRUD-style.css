@@ -1,15 +1,17 @@
 #crudBlock{
-    width: 100%;
+    width: 90%;
+    border: 1px solid blue;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #000;
+
+    margin: 20px 0;
 }
 
 #headerAdminPanel{
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 
 #crudTitle{
@@ -17,9 +19,7 @@
     font-weight: bold;
     font-size: 1.5rem;
     border: 1px solid #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #navCRUDBlock{
@@ -27,6 +27,12 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+#navCRUDBlock a{
+    text-decoration: none;
+    color: white;
+    width: 30%;
 }
 
 #navCRUDBlock button{
@@ -42,30 +48,9 @@
     color: white;
 }
 
-#navCRUDBlock a{
-    text-decoration: none;
-    color: white;
-    width: 30%;
-}
-
-#crudBlock{
-    margin-top: 20px;
-    width: 90%;
-    height: 90%;
-    border: 1px solid green;
-}
-
 #operationBlock{
     width: 100%;
-    height: 200px;
-
     margin-top: 20px;
 
-    border: 1px solid red;
-}
-
-#createTitle{
-    width: 80%;
-    font-size: 1.2rem;
-    
+    border: 1px solid grey;
 }

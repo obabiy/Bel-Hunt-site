@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation, useRouteMatch, useParams, Route, Switch } from 'react-router-dom'
 
 import './AdminPanelControlNavCRUD-style.css'
-import { useEffect } from 'react'
+import AdminPanelCreateTemplate from './AdminPanelCreateTemplate'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -33,17 +33,13 @@ export default function AdminPanelControlNavCRUD(){
                         type === 'topics' ? (
                             <p>Create topic</p>
                         
-                        
                         ): type === 'galleries' ? (
                             <p>Create gallery</p>
                         
                         
                         
                         ) : type === 'news' ? (
-                            <p>Create news</p>
-                        
-                        
-                        
+                            <AdminPanelCreateTemplate type="новости"/>
                         ) : null
                     ) : /edit/.test(location) ?                 //editing something
                     (

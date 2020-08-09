@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 import './Prices-style.css'
-
 import DefaultPageTitle from './DefaultPageTitle'
 
 import $ from 'jquery'
@@ -9,74 +8,8 @@ import $ from 'jquery'
 
 export default function Prices(){
 
-    const spoiler = useRef();
-    const spoiler1 = useRef();
-    const spoiler2 = useRef();
-    const spoiler3 = useRef();
-    const spoiler4 = useRef();
-    const spoiler5 = useRef();
-    const spoiler6 = useRef();
-    const spoiler7 = useRef();
-    const spoiler8 = useRef();
-    const spoiler9 = useRef();
-    const spoiler10 = useRef();
-    const spoiler11 = useRef();
-    const spoiler12 = useRef();
-    const spoiler13 = useRef();
-    const spoiler14 = useRef();
-    const spoiler15 = useRef();
-    const spoiler16 = useRef();
-
-    function open(){
-        $(spoiler.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open1(){
-        $(spoiler1.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open2(){
-        $(spoiler2.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open3(){
-        $(spoiler3.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open4(){
-        $(spoiler4.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open5(){
-        $(spoiler5.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open6(){
-        $(spoiler6.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open7(){
-        $(spoiler7.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open8(){
-        $(spoiler8.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open9(){
-        $(spoiler9.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open10(){
-        $(spoiler10.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open11(){
-        $(spoiler11.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open12(){
-        $(spoiler12.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open13(){
-        $(spoiler13.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open14(){
-        $(spoiler14.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open15(){
-        $(spoiler15.current).toggleClass('active').siblings().slideToggle(500);
-    }
-    function open16(){
-        $(spoiler16.current).toggleClass('active').siblings().slideToggle(500);
+    const open = (event) => {
+        $(event.currentTarget).toggleClass('active').siblings().slideToggle(500);
     }
 
     return(
@@ -85,7 +18,7 @@ export default function Prices(){
             
             <div className = 'pricesPart'>
                 
-                <div className = "titlePricesPart" ref = {spoiler} onClick = {open} >Базовые услуги<img className = "vectorButton" src = './img/angle.svg'/></div> 
+                <div className = "titlePricesPart" onClick = {open} >Базовые услуги<img className = "vectorButton" src = './img/angle.svg'/></div> 
                 <ul>
                     <li><span id = "text">Организационный сбор (с человека) — <span id = "price">25€</span></span></li>
                     <li><span id = "text">Стоимость для клиента одного дня организации охоты и пребывания в охотхозяйстве общества (полный пансион, лицензия на охоту, сопровождение на охоте, транспортные услуги, связанные с проведением охоты) — <span id = "price">150€</span></span></li>
@@ -97,7 +30,7 @@ export default function Prices(){
                 </ul>
             </div>
             <div className = 'pricesPart'>
-                <div className = "titlePricesPart" ref = {spoiler1} onClick = {open1}>Дополнительные услуги<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "titlePricesPart" onClick = {open}>Дополнительные услуги<img className = "vectorButton" src = './img/angle.svg'/></div>
                 <ul>
                     <li><span id = "text">Организация ввоза-вывоза одной собаки — <span id = "price">40€</span></span></li>
                     <li><span id = "text">Обслуживание егерем с легавой собакой (за одни сутки) — <span id = "price">45€</span></span></li>
@@ -110,7 +43,7 @@ export default function Prices(){
             </div>
             <div id = "titleBlock">Стоимость дичи</div>
             <div className = "pricesPart">
-                    <div className = "titlePricesPart"  ref = {spoiler2} onClick = {open2}>Лось<img className = "vectorButton" src = './img/angle.svg'/></div>
+                    <div className = "titlePricesPart" onClick = {open}>Лось<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>20 августа - 40 декабря</span><br/>(трофей — рога с черепом без нижней челюсти; охота во время гона, с подхода, из засидок и загоном)</div>
                     <div className = "pricesWeights">
                         <div className = "line white">ВЕС, КГ<span>Цена, €</span></div>
@@ -133,10 +66,10 @@ export default function Prices(){
                     </ul>
                 </div>
                 <div className = "pricesPart">
-                    <div className = "titlePricesPart"  ref = {spoiler3} onClick = {open3}>Зубр<img className = "vectorButton" src = './img/angle.svg'/></div>
+                    <div className = "titlePricesPart" onClick = {open}>Зубр<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information">По запросу.</div>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart">Олень<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Олень<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>20 августа — 31 января</span><br/>(трофей – рога с черепом без нижней челюсти; охота во время гона с подхода, из засидок и загоном)</div>
                     <div className = "pricesWeights">
                         <div className = "line white">ВЕС, КГ<span>Цена, €</span></div>
@@ -157,7 +90,7 @@ export default function Prices(){
                         <li><span id = "text">Ранение сеголетка — <span id = "price">180€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler4} onClick = {open4}>Кабан<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Кабан<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>1 мая - 30 сентября (из засады, с подхода)<br/>1 октября - 30 декабря (загоном, из засады, с подхода)<br/>1 января - 30 апреля (из засады с вышек)</span><br/>(трофей – клыки)</div>
                     <div className = "pricesWeights">
                         <div className = "line white">Длина, мм<span>Цена, €</span></div>
@@ -179,7 +112,7 @@ export default function Prices(){
                         <li><span id = "text">Ранение взрослого не трофейного животного — <span id = "price">120€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart"ref = {spoiler5} onClick = {open5}>Косуля<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Косуля<img className = "vectorButton" src = './img/angle.svg'/></div>
                 <div className = "information"><span>15 мая — 30 декабря</span><br/>(трофей – рога с черепом без нижней челюсти, охота с подхода, из засидок и загоном)</div>
                     <div className = "pricesWeights">
                         <div className = "line white">ВЕС, Г<span>Цена, €</span></div>
@@ -199,69 +132,69 @@ export default function Prices(){
                         <li><span id = "text">Ранение сеголетка — <span id = "price">60€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler6} onClick = {open6}>Волк<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Волк<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information">(охота с флажками, из засидок у привады, на вабу)</div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">230€</span></span></li>
                         <li><span id = "text">Ранение — <span id = "price">115€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler7} onClick = {open7}>Глухарь<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Глухарь<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>20 марта — 30 апреля</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">590€</span></span></li>
                         <li><span id = "text">Ранение — <span id = "price">295€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler8} onClick = {open8}>Тетерев<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Тетерев<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>20 марта — 30 апреля<br/>1 августа — 30 ноября</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">180€</span></span></li>
                         <li><span id = "text">Ранение — <span id = "price">60€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler9} onClick = {open9}>Вальдшнеп<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Вальдшнеп<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Первая суббота апреля – второе воскресенье мая<br/>Первая суббота августа – второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">8€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler10} onClick = {open10}>Гусь<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Гусь<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Вторая суббота марта – второе воскресенье мая<br/>Третья суббота сентября – второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">13€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler11} onClick = {open11}>Куропатка<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Куропатка<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Первая суббота сентября — второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">10€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler12} onClick = {open12}>Рябчик<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Рябчик<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Первая суббота сентября — второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">7€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler13} onClick = {open13}>Бекас и др. мелкая болотная дичь<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Бекас и др. мелкая болотная дичь<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Вторая суббота июля — первое воскресенье августа<br/>Вторая суббота августа – второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">7€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart"ref = {spoiler14} onClick = {open14}>Утка<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Утка<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Первая суббота апреля — второе воскресенье мая (селезень кряквы)<br/>Вторая суббота августа — второе воскресенье декабря</span></div>
                     <ul>
                         <li><span id = "text">Добыча весна/осень — <span id = "price">7/6€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler15} onClick = {open15}>Лиса, куница, енотовидная собака<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Лиса, куница, енотовидная собака<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">20€</span></span></li>
                     </ul>
                 </div>
-                <div className = "pricesPart"><div className = "titlePricesPart" ref = {spoiler16} onClick = {open16}>Заяц<img className = "vectorButton" src = './img/angle.svg'/></div>
+                <div className = "pricesPart"><div className = "titlePricesPart" onClick = {open}>Заяц<img className = "vectorButton" src = './img/angle.svg'/></div>
                     <div className = "information"><span>Первая суббота – последнее воскресенье октября<br/>Первая суббота ноября – последнее воскресенье января</span></div>
                     <ul>
                         <li><span id = "text">Добыча — <span id = "price">20€</span></span></li>
