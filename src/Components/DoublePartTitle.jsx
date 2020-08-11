@@ -13,10 +13,10 @@ export default function DoublePartTitle(props){
     return(
         <div id = 'doubleTitleContainer'>
             <div className = 'titleParts' id = 'firstPart'>
-                <span>{firstPartBold}</span> {firstPartNormal} 
+                <span>{firstPartBold ? firstPartBold : null}</span> {firstPartNormal ? firstPartNormal : null} 
             </div>
             <div className = 'titleParts' id = 'secondPart'>
-                {secondPartNormal} <span>{secondPartColored}</span>
+                {secondPartNormal ? secondPartNormal : null} <span>{secondPartColored ? secondPartColored : null}</span>
             </div>
         </div>
     );

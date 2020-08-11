@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 
 import './NewsCardHomePage-style.css'
 
-import { Link, Route } from 'react-router-dom'
-
 export default function NewsCardHomePage(props){
 
     const [title, setTitle] = useState(props.title);

@@ -1,0 +1,22 @@
+#galleryContainer{
+    width: 1366px;
+
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    border: 1px solid green;
+
+    margin-bottom: 40px;
+
+    padding: 0 82px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1366px){
+    #galleryContainer{
+        width: 100%;
+        padding: 0 72px;
+    }
+}

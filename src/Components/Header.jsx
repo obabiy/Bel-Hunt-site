@@ -75,7 +75,10 @@ function header() {
         <div className = "headerPart" id = "navHeader">
             
            
-            <div id = "buttonHuntingNav" onClick = {openNav}><img src = "https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2Faim.svg?alt=media&token=5dec7968-eb94-41c5-b36f-eb9fa3614d0f"/>Охота<img id = "vector" src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2FnavHuntButVector.svg?alt=media&token=4d3c285d-f90f-44f1-a05e-526a516eb69a"></img>
+            <div id = "buttonHuntingNav" onClick = {openNav}>
+                <img src = "https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2Faim.svg?alt=media&token=5dec7968-eb94-41c5-b36f-eb9fa3614d0f"/>
+                Охота
+                <img id = "vector" src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2FnavHuntButVector.svg?alt=media&token=4d3c285d-f90f-44f1-a05e-526a516eb69a"/>
                 <div id = "navHunting">
                     <ul>
                         <li><Link to="/elkHunting">Охота на лося</Link></li>

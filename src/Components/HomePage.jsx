@@ -16,19 +16,18 @@ export default function HomePage(){
         
         db.collection('news')
             .orderBy('timestamp', 'desc')
-            .onSnapshot( snapshot => {
-                setNews(snapshot.docs.map(doc => ({
+            .onSnapshot( (snapshot) => {
+                setNews(snapshot.docs.map( (doc) => ({
                     title: doc.data().title,
                     text: doc.data().text,
                     id: doc.id
                 })))
             })
-        
     },[])
 
-    useEffect(() => {
-        setVisibleNews(news.slice(0,3))
-    }, [news]);
+    // useEffect(() => {
+    //     setVisibleNews(news.slice(0,3).map())
+    // }, [news]);
 
     
     
@@ -121,7 +120,7 @@ export default function HomePage(){
             
                 <div id = "newsContainer">
                 {   
-                    visibleNews.map(oneNews => (
+                    news.map( (oneNews) => (
                         <NewsCardHomePage title={oneNews.title} text={oneNews.text}/>
                     ))
                 }

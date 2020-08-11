@@ -1,5 +1,5 @@
 #doubleTitleContainer{
-    max-width: 100%;
+    width: 100%;
 
     font-family: Mariupol;
     
@@ -9,19 +9,12 @@
     justify-content: space-between;
 
     margin-bottom: 40px;
-
-    padding: 0 6% 0 6%;
-    box-sizing: border-box;
 }
 
 .titleParts{
     height: 100%;
     width: 45%;
-    
-
-    color: #000
-
-
+    color: #000;
 }
 
 #firstPart{

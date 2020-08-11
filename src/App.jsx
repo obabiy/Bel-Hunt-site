@@ -9,7 +9,7 @@ import Footer from './Components/Footer'
 import HomePage from './Components/HomePage'
 import CurrentAnimalContent from './Components/CurrentAnimalContent'
 import Prices from './Components/Prices'
-import GalleryComponent from './Components/GalleryComponent'
+import Gallery from './Components/Gallery/Gallery'
 import AdminPanel from './Components/AdminPanel/AdminPanel'
 
 // ReactDOM.render((
@@ -92,13 +92,13 @@ export default function App(){
 
         <Route path = "/galleryTrophy">
           {
-            <GalleryComponent />
+            <Gallery type = 'trophy'/>
           }
         </Route>
         
         <Route path = "/galleryHouses">
           {
-
+            <Gallery type = 'houses'/>
           }
         </Route>
 

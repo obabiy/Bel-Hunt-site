@@ -14,6 +14,9 @@
     border: 1px solid green;
 
     margin-bottom: 40px;
+
+    padding: 0 82px;
+    box-sizing: border-box;
 }
 
 #galleriesBlock{
@@ -23,9 +26,6 @@
     justify-content: space-between;
 
     margin-bottom: 40px;
-
-    padding: 0 6% 0 6%;
-    box-sizing: border-box;
 }
 
 .gallery{
@@ -72,7 +72,7 @@
 }
 
 #animalNavContainer{
-    width: 100%;
+    min-width: 1366px;
     
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@
     background: #F0F0F0;
 
     
-    padding: 40px 6% 60px 6%;
+    padding: 40px 82px 60px 82px;
     box-sizing: border-box;
 }
 
@@ -139,8 +139,6 @@
     align-items: center;
 
     margin: 80px 0;
-     
-    padding: 0 6% 0 6%;
     box-sizing: border-box;
 }
 
@@ -168,9 +166,10 @@
 }
 
 #newsContainer{
+    border: 1px solid red;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
@@ -179,7 +178,7 @@
 }
 
 #feedbackForm{
-    width: 100%;
+    min-width: 1366px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -246,8 +245,31 @@
 @media screen and (max-width: 1366px){
     #homePageContainer{
         width: 100%;
+        padding: 0 72px;
+    }
+    #animalNavContainer{
+        min-width: 100vw;
+        padding: 0 72px;
+    }
+    #feedbackForm{
+        min-width: 100vw;
+        padding: 50px 72px 170px;
     }
     .transition{
-        width: 100%;
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #homePageContainer{
+        padding: 0 10px;
+    }
+    #animalNavContainer{
+        min-width: 100vw;
+        padding: 0 10px;
+    }
+    #feedbackForm{
+        min-width: 100vw;
+        padding: 50px 10px 170px;
     }
 }

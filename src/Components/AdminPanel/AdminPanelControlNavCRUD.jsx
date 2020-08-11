@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link, useLocation, useRouteMatch, useParams, Route, Switch } from 'react-router-dom'
+import { Link, useLocation, useRouteMatch, useParams } from 'react-router-dom'
 
 import './AdminPanelControlNavCRUD-style.css'
 import AdminPanelCreateTemplate from './AdminPanelCreateTemplate'
+import AdminPanelDeleteTemplate from './AdminPanelDeleteTemplate'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -69,10 +70,7 @@ export default function AdminPanelControlNavCRUD(){
                         
                         
                         ) : type === 'news' ? (
-                            <p>Delete news</p>
-                        
-                        
-                        
+                            <AdminPanelDeleteTemplate />
                         ) : null
                     ) : null
                     
