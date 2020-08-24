@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import "./AdminPanelCreateTemplate-styles.css";
+import "./AdminPanelCreateNews-styles.css";
 
 import { Button } from "@material-ui/core";
 
-import db from "../../firebase";
+import {db} from "../../firebase";
 import firebase from "firebase";
 
 
-function AdminPanelCreateTemplate(props) {
-
-  const [type, setType] = useState(props.type);
+function AdminPanelCreateNews() {
 
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -39,14 +37,14 @@ function AdminPanelCreateTemplate(props) {
       <h3>Название:</h3>
       <input
         value={title}
-        placeholder={"Впишите название " + type}
+        placeholder={"Впишите название новости"}
         onChange={(event) => setTitle(event.target.value)}
       />
       <h3>Текст: </h3>
 
       <textarea
         value={text}
-        placeholder={"Впишите текст для " + type}
+        placeholder={"Впишите текст для новости"}
         onChange={(event) => setText(event.target.value)}
       />
       <div id="createFormButtons">
@@ -72,4 +70,4 @@ function AdminPanelCreateTemplate(props) {
   );
 }
 
-export default AdminPanelCreateTemplate;
+export default AdminPanelCreateNews;

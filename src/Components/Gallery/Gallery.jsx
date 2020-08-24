@@ -4,6 +4,7 @@ import './Gallery-style.css'
 
 import DoublePartTitle from '../DoublePartTitle';
 import SeoBlock from '../SeoBlock';
+import GalleryPhoto from './GalleryPhoto';
 
 function Gallery(props) {
 
@@ -16,6 +17,20 @@ function Gallery(props) {
                 secondPartNormal={ type === 'trophy' ? 'Мы делем фотоотчеты о каждой охоте. В альбоме собраны наши знаковые трофеи.' : '' }/>
             
             <div id = 'gallery'>
+                <GalleryPhoto/>
+                <GalleryPhoto/>
+                <GalleryPhoto/>
+                <GalleryPhoto/>
+                <GalleryPhoto/>
+
+                {/* {
+                    type === 'trophy' ? {
+
+                    } 
+                    : {
+                        
+                    }
+                } */}
 
             </div>
 

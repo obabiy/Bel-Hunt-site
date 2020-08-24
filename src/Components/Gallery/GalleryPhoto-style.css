@@ -1,0 +1,32 @@
+#galleryPhoto{
+    flex: auto;
+    margin: .5vw;
+    width: 200px;
+}
+
+#galleryPhoto img{
+    width: 100%;
+    height: auto;
+}
+
+#gallery:hover img{
+    opacity: .8;
+    transition: .8s opacity;
+}
+
+#galleryPhoto img:hover{
+    opacity: 1;
+    transition: .8s opacity;
+}
+
+@media screen and (max-width: 1366px){
+    #galleryPhoto{
+        margin: .3vw;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #galleryPhoto{
+        margin: 0;
+    }
+}

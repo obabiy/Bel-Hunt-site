@@ -3,20 +3,34 @@
 
     display: flex;
     justify-content: center;
-
     flex-wrap: wrap;
 
     border: 1px solid green;
 
     margin-bottom: 40px;
-
     padding: 0 82px;
+
     box-sizing: border-box;
+}
+
+#gallery{
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    margin-bottom: 40px;
 }
 
 @media screen and (max-width: 1366px){
     #galleryContainer{
         width: 100%;
         padding: 0 72px;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #galleryContainer{
+        padding: 0 10px;
     }
 }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import './AdminPanelDeleteTemplate-style.css'
+import './AdminPanelDeleteNews-style.css'
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-import db from "../../firebase";
+import {db} from "../../firebase";
 
-function AdminPanelDeleteTemplate() {
+function AdminPanelDeleteNews() {
   const [entities, setEntities] = useState([]);
 
   const imgSrc = 'https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/newsImg%2Fbell.png?alt=media&token=8d0904eb-4c8c-4803-a8b7-fd5fa8cfc1b9'
@@ -38,4 +38,4 @@ function AdminPanelDeleteTemplate() {
   );
 }
 
-export default AdminPanelDeleteTemplate;
+export default AdminPanelDeleteNews;

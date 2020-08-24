@@ -1,0 +1,14 @@
+#articleCreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#articleCreate__editor{
+    min-height: 300px;
+}
+
+#articleCreate__button{
+    margin-top: 40px;
+    background-color: green;
+}

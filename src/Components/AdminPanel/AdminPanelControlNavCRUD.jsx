@@ -2,8 +2,9 @@ import React from 'react'
 import { Link, useLocation, useRouteMatch, useParams } from 'react-router-dom'
 
 import './AdminPanelControlNavCRUD-style.css'
-import AdminPanelCreateTemplate from './AdminPanelCreateTemplate'
-import AdminPanelDeleteTemplate from './AdminPanelDeleteTemplate'
+import AdminPanelCreateNews from './AdminPanelCreateNews'
+import AdminPanelDeleteNews from './AdminPanelDeleteNews'
+import AdminPanelCreateArticle from './AdminPanelCreateArticle'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -15,7 +16,7 @@ export default function AdminPanelControlNavCRUD(){
         <div id = 'crudBlock'>
             <div id = 'headerAdminPanel'>
                 <div id = 'crudTitle'>
-                    {/topics/.test(location) ? ('Статьи:') : null} 
+                    {/articles/.test(location) ? ('Статьи:') : null} 
                     {/galleries/.test(location) ? ('Галлереи:'):null}
                     {/news/.test(location) ? ('Новости:') : null}    
                 </div>
@@ -31,8 +32,8 @@ export default function AdminPanelControlNavCRUD(){
                 {
                     /create/.test(location) ?                 //Creating something
                     (
-                        type === 'topics' ? (
-                            <p>Create topic</p>
+                        type === 'articles' ? (
+                            <AdminPanelCreateArticle/>
                         
                         ): type === 'galleries' ? (
                             <p>Create gallery</p>
@@ -40,11 +41,11 @@ export default function AdminPanelControlNavCRUD(){
                         
                         
                         ) : type === 'news' ? (
-                            <AdminPanelCreateTemplate type="новости"/>
+                            <AdminPanelCreateNews/>
                         ) : null
                     ) : /edit/.test(location) ?                 //editing something
                     (
-                        type === 'topics' ? (
+                        type === 'articles' ? (
                             <p>Edit topic</p>
                         
                         
@@ -60,7 +61,7 @@ export default function AdminPanelControlNavCRUD(){
                         
                         ) : null
                     ) : /delete/.test(location) ? (             //deleting something
-                        type === 'topics' ? (
+                        type === 'articles' ? (
                             <p>Delete topic</p>
                         
                         
@@ -70,7 +71,7 @@ export default function AdminPanelControlNavCRUD(){
                         
                         
                         ) : type === 'news' ? (
-                            <AdminPanelDeleteTemplate />
+                            <AdminPanelDeleteNews />
                         ) : null
                     ) : null
                     
