@@ -5,6 +5,10 @@ import './AdminPanelControlNavCRUD-style.css'
 import AdminPanelCreateNews from './AdminPanelCreateNews'
 import AdminPanelDeleteNews from './AdminPanelDeleteNews'
 import AdminPanelCreateArticle from './AdminPanelCreateArticle'
+import AdminPanelDeleteArticle from './AdminPanelDeleteArticle'
+import AdminPanelEditArticle from './AdminPanelEditArticle'
+import AdminPanelGalleryAddPhoto from './AdminPanelGalleryAddPhoto'
+import AdminPanelEditNews from './AdminPanelEditNews'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -36,7 +40,7 @@ export default function AdminPanelControlNavCRUD(){
                             <AdminPanelCreateArticle/>
                         
                         ): type === 'galleries' ? (
-                            <p>Create gallery</p>
+                            <AdminPanelGalleryAddPhoto/>
                         
                         
                         
@@ -46,7 +50,7 @@ export default function AdminPanelControlNavCRUD(){
                     ) : /edit/.test(location) ?                 //editing something
                     (
                         type === 'articles' ? (
-                            <p>Edit topic</p>
+                            <AdminPanelEditArticle/>
                         
                         
                         ): type === 'galleries' ? (
@@ -55,14 +59,14 @@ export default function AdminPanelControlNavCRUD(){
                         
                         
                         ) : type === 'news' ? (
-                            <p>Edit news</p>
+                            <AdminPanelEditNews/>
                         
                         
                         
                         ) : null
                     ) : /delete/.test(location) ? (             //deleting something
                         type === 'articles' ? (
-                            <p>Delete topic</p>
+                            <AdminPanelDeleteArticle/>
                         
                         
                         ): type === 'galleries' ? (

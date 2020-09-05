@@ -1,14 +1,47 @@
 #articleCreate{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-}
-
-#articleCreate__editor{
-    min-height: 300px;
 }
 
 #articleCreate__button{
     margin-top: 40px;
     background-color: green;
+}
+
+#articleCreate > *{
+    margin-bottom: 40px;
+}
+
+#articleCreate > label{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#articleCreate > input {
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 3px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #E8E8E8;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3); 
+    margin-bottom: 30px;
+}
+
+#article__editor{
+    width: 100%;
+    
+}
+
+#article__progress{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#article__imgUpl{
+    border: none;
+    font-size: 1rem;
 }

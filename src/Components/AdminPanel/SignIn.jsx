@@ -44,7 +44,7 @@ function SignIn() {
       <h1>BELHUNT</h1>
       <form id = 'signInPage__form' action="">
         <input onChange={(e) => setEmail(e.target.value)} value={email} placeholder = 'Email'/>
-        <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder = 'Пароль'/>
+        <input onChange={(e) => setPassword(e.target.value)} type = 'password' value={password} placeholder = 'Пароль'/>
         <Button onClick={signIn} id='button' variant='contained' color='primary' type='submit'>
           Войти
         </Button>
