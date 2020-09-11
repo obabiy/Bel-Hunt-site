@@ -32,6 +32,7 @@ function AdminPanelEditArticle() {
   const [entities, setEntities] = useState([]);
 
   const [title, setTitle] = useState("");
+  const [titleDescription, setTitleDescription] = useState("");
   const [articleText, setArticleText] = useState("");
   const [slug, setSlug] = useState("");
   const [id, setId] = useState(null);
@@ -44,6 +45,8 @@ function AdminPanelEditArticle() {
       setEntities(
         snapshot.docs.map((doc) => ({
           title: doc.data().title,
+          titleDescription: doc.data().titleDescription,
+          img: doc.data().imageUrl,
           text: doc.data().text,
           slug: doc.data().slug,
           id: doc.id,
@@ -56,6 +59,7 @@ function AdminPanelEditArticle() {
     db.collection("articles").doc(id).set(
       {
         title: title,
+        titleDescription: titleDescription,
         text: articleText,
         slug: slug
       },
@@ -83,6 +87,7 @@ function AdminPanelEditArticle() {
             <button
               onClick={() => {
                 setTitle(entity.title);
+                setTitleDescription(entity.titleDescription);
                 setArticleText(entity.text);
                 setSlug(entity.slug);
                 setId(entity.id);
@@ -102,19 +107,32 @@ function AdminPanelEditArticle() {
       >
         <div className={classes.paper} id="modal">
           <h1>Редактировать статью</h1>
-
+          
+          <label for = 'title'>Заголовок:</label>
           <Input
+            id = 'title'
             value={title}
             onChange={(event) => setTitle(event.target.value)}
           />
 
+          <label for = 'titleDescription'>Заголовок:</label>
+          <Input
+            id = 'titleDescription'
+            value={titleDescription}
+            onChange={(event) => setTitleDescription(event.target.value)}
+          />
+
+          <label for = 'editor'>Текст:</label>
           <CKEditor
+            id = 'editor'
             editor={ClassicEditor}
             data={articleText}
             onChange={handleOnChangeEditor}
           />
-
+          
+          <label for = 'slug'>Строка для url:</label>
           <Input
+            id = 'slug'
             value={slug}
             onChange={(event) => setSlug(event.target.value)}
           />

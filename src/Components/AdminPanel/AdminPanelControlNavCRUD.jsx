@@ -4,11 +4,12 @@ import { Link, useLocation, useRouteMatch, useParams } from 'react-router-dom'
 import './AdminPanelControlNavCRUD-style.css'
 import AdminPanelCreateNews from './AdminPanelCreateNews'
 import AdminPanelDeleteNews from './AdminPanelDeleteNews'
+import AdminPanelEditNews from './AdminPanelEditNews'
 import AdminPanelCreateArticle from './AdminPanelCreateArticle'
 import AdminPanelDeleteArticle from './AdminPanelDeleteArticle'
 import AdminPanelEditArticle from './AdminPanelEditArticle'
 import AdminPanelGalleryAddPhoto from './AdminPanelGalleryAddPhoto'
-import AdminPanelEditNews from './AdminPanelEditNews'
+import AdminPanelGalleryDeletePhoto from './AdminPanelGalleryDeletePhoto'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -70,7 +71,7 @@ export default function AdminPanelControlNavCRUD(){
                         
                         
                         ): type === 'galleries' ? (
-                            <p>Delete gallery</p>
+                            <AdminPanelGalleryDeletePhoto/>
                         
                         
                         

@@ -1,13 +1,21 @@
-import React from 'react';
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from "react-router-dom"
 
 import $ from 'jquery'
 
 import './Header-style.css'
+import {db} from '../firebase'
 
-function header() {
-    
-    function openNav(){
+function Header() {
+
+    const [pages, setPages] = useState([]);
+    const location = useLocation()
+
+    const scrollPageUp = () => {
+        $('html, body').animate({scrollTop: 0},500);
+    }
+
+    const openHuntNav = () => {
         var nav = $('#navHunting'),
         time = 500,
         vector = $('#vector'),
@@ -25,7 +33,22 @@ function header() {
         }
     }
 
-    function openGalleryNav(){
+    useEffect(() => {
+        db.collection('articles').onSnapshot((snapshot)=>{
+            setPages(snapshot.docs.map((doc)=>({
+                title: doc.data().title,
+                slug: doc.data().slug,
+                id: doc.id
+            })))
+        })
+    }, []);
+    
+    useEffect(() => {
+        scrollPageUp()
+    }, [location]);
+    
+
+    const openGalleryNav = () => {
         var galleryNav = $('#navGallery'),
         time = 500,
         nav = $('#navHunting'),
@@ -75,13 +98,20 @@ function header() {
         <div className = "headerPart" id = "navHeader">
             
            
-            <div id = "buttonHuntingNav" onClick = {openNav}>
+            <div id = "buttonHuntingNav" onClick = {openHuntNav}>
                 <img src = "https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2Faim.svg?alt=media&token=5dec7968-eb94-41c5-b36f-eb9fa3614d0f"/>
                 Охота
                 <img id = "vector" src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2FnavHuntButVector.svg?alt=media&token=4d3c285d-f90f-44f1-a05e-526a516eb69a"/>
                 <div id = "navHunting">
                     <ul>
-                        <li><Link to="/elkHunting">Охота на лося</Link></li>
+
+                        {
+                            pages.map((page)=>(
+                                <li onCLick={openHuntNav}><Link to={`/${page.slug}`}>{page.title}</Link></li>
+                            ))
+                        }
+
+                        {/* <li><Link to="/elkHunting">Охота на лося</Link></li>
                         <li><Link to="/bisonHunting">Охота на зубра</Link></li>
                         <li><Link to="/boarHunting">Охота на кабана</Link></li>
                         <li><Link to="/roeDeerHunting">Охота на косулю</Link></li>
@@ -91,7 +121,7 @@ function header() {
                         <li><Link to="/woodcockHunting">Охота на вальдшнепа</Link></li>
                         <li><Link to="/partridgeHunting">Охота на куропатку</Link></li>
                         <li><Link to="/snipeHunting">Охота на бекаса</Link></li>
-                        <li><Link to="/duckHunting">Охота на утку</Link></li>
+                        <li><Link to="/duckHunting">Охота на утку</Link></li> */}
                     </ul>
                 </div>
             </div>
@@ -100,8 +130,8 @@ function header() {
             <button id = "buttonGalleryNav" onClick = { openGalleryNav }>Галлерея<img id = 'vectorGallery' src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2FnavGalleryVector.svg?alt=media&token=6f2481af-1943-4e50-84bf-83045910d284"/>
                 <div id= "navGallery">
                     <ul>
-                        <li><Link to = "/galleryTrophy">Трофеи</Link></li>
-                        <li><Link to = "/galleryHouses">Охотничьи дома</Link></li>
+                        <Link to = "/galleryTrophy"><li onClick={openGalleryNav}>Трофеи</li></Link>
+                        <Link to = "/galleryHouses"><li onClick={openGalleryNav}>Охотничьи дома</li></Link>
                     </ul>
                 </div>
             </button>
@@ -117,4 +147,4 @@ function header() {
   );
 }
 
-export default header;
+export default Header;

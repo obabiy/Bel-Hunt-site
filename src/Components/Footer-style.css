@@ -78,6 +78,11 @@
     flex-wrap: wrap;
 }
 
+.certainAnimalFooterMenu a{
+    text-decoration: none;
+    color: #E0E0E0;
+}
+
 .footerMenuMain{
     border: 1px solid grey;
     width: 100%;

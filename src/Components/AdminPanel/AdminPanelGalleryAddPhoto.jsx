@@ -4,6 +4,7 @@ import { Modal, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { db, storage } from '../../firebase'
+import firebase from 'firebase'
 
 const useStyles = makeStyles((theme) => ({
     paper: {    
@@ -76,7 +77,8 @@ function AdminPanelGalleryAddPhoto() {
                         .getDownloadURL()
                         .then((url) => {
                             db.collection("TrophyGallery").add({
-                            imageUrl: url  
+                            imageUrl: url,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp() 
                             });
                             setProgress(0)
                         });
@@ -108,7 +110,8 @@ function AdminPanelGalleryAddPhoto() {
                         .getDownloadURL()
                         .then((url) => {
                             db.collection("HousesGallery").add({
-                            imageUrl: url  
+                            imageUrl: url,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
                             });
                             setProgress(0)
                         });
@@ -153,7 +156,7 @@ function AdminPanelGalleryAddPhoto() {
                         disabled = {!image}
                         variant='contained'
                         color='primary'
-                        onClick={handleUpload}>
+                        onClick={() => {image[0] && handleUpload()} }>
                         Загрузить
                     </Button>
                     <Button

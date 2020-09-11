@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './Footer-style.css'
 
 import { Link } from 'react-router-dom'
 
-function footer(){  
+import { db } from '../firebase'
+
+function Footer(){  
+    const [pages, setPages] = useState([]);
+
+    useEffect(() => {
+        db.collection('articles').onSnapshot((snapshot)=>{
+            setPages(snapshot.docs.map((doc) => ({
+                slug: doc.data().slug,
+                title: doc.data().title
+            })))
+        })
+    }, []);
     
     return(
         <div id = "footerContainer">
@@ -14,7 +26,14 @@ function footer(){
                 <div className="footerPart" id = "footerPartHunt">
                     <h4>Охота</h4>
                     <div className="certainAnimalFooterMenu">
-                        <li className = "footerMenuHunting"><Link to="/elkHunting"> на лося</Link></li>
+
+                        {
+                            pages.map((page) => (
+                            <Link to = {`/${page.slug}`}><li className = 'footerMenuHunting'>{page.title}</li></Link>
+                            ))
+                        }
+
+                        {/* <li className = "footerMenuHunting"><Link to="/elkHunting"> на лося</Link></li>
                         <li className = "footerMenuHunting"><Link to="/bisonHunting">на зубра</Link></li>
                         <li className = "footerMenuHunting"><Link to="/boarHunting">на кабана</Link></li>
                         <li className = "footerMenuHunting"><Link to="/roeDeerHunting">на косулю</Link></li>
@@ -24,7 +43,7 @@ function footer(){
                         <li className = "footerMenuHunting"><Link to="/woodcockHunting">на вальдшнепа</Link></li>
                         <li className = "footerMenuHunting"><Link to="/partridgeHunting">на куропатку</Link></li>
                         <li className = "footerMenuHunting"><Link to="/snipeHunting">на бекаса</Link></li>
-                        <li className = "footerMenuHunting"><Link to="/duckHunting">на утку</Link></li>
+                        <li className = "footerMenuHunting"><Link to="/duckHunting">на утку</Link></li> */}
                     </div>
                 </div>
 
@@ -54,4 +73,4 @@ function footer(){
     );
 }
 
-export default footer;
+export default Footer;

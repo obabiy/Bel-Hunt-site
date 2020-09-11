@@ -33,7 +33,7 @@ function AdminPanelEditNews() {
   const [text, setText] = useState("");
   const [id, setId] = useState(null)
 
-  const[open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const classes = useStyles()
 
   const handleOpen = () => {
@@ -70,13 +70,14 @@ function AdminPanelEditNews() {
             <img src={`${imgSrc}`}/>
             <b>{entity.title}</b>
             <p3>{entity.text}</p3>
-            <button onCLick={ () => {
-                setTitle(entity.title)
-                setText(entity.text)
-                setId(entity.id)
-                handleOpen()
+          
+            <button onClick={() => {
+              setId(entity.id)
+              setTitle(entity.title)
+              setText(entity.text)
+              handleOpen()
             }}>
-                Редактировать
+              Edit
             </button>
         </div>
         ))

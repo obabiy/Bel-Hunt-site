@@ -15,18 +15,24 @@ function Gallery(props) {
     const[housesImages, setHousesImages] = useState([])
 
     useEffect(() => {
-        db.collection('TrophyGallery').onSnapshot(
+        db.collection('TrophyGallery')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(
             (snapshot) => {
                 setTrophyImages( snapshot.docs.map( (doc) => ({
-                    url: doc.data().imageUrl
+                    url: doc.data().imageUrl,
+                    id: doc.id
                 }) ))
             }
         )
         
-        db.collection('HousesGallery').onSnapshot(
+        db.collection('HousesGallery')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(
             (snapshot) => {
                 setHousesImages( snapshot.docs.map( (doc) => ({
-                    url: doc.data().imageUrl
+                    url: doc.data().imageUrl,
+                    id: doc.id
                 }) ))
             }
         )
@@ -44,14 +50,14 @@ function Gallery(props) {
                     type === 'trophy' 
                     && 
                     trophyImages.map((img) => (
-                        <GalleryPhoto url = {img.url}/>
+                        <GalleryPhoto url = {img.url} key = {img.id}/>
                     ))
                 }
                 {
                     type === 'houses' 
                     && 
                     housesImages.map((img) => (
-                        <GalleryPhoto url = {img.url}/>
+                        <GalleryPhoto url = {img.url} key = {img.id}/>
                     ))
                 }
 

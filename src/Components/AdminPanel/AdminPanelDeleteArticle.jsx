@@ -3,7 +3,7 @@ import './AdminPanelDeleteArticle-style.css'
 
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-import {db} from "../../firebase";
+import {db, storage} from "../../firebase";
 
 function AdminPanelDeleteArticle() {
   const [entities, setEntities] = useState([]);
@@ -27,7 +27,12 @@ function AdminPanelDeleteArticle() {
         <div id = 'articleCard'>
             <img src={`${entity.img}`} alt = 'Wait..'/>
             <b>{entity.title}</b>
-            <DeleteForeverIcon onClick={ (event) => {db.collection('articles').doc(entity.id).delete()} }/>
+            <DeleteForeverIcon onClick={ (event) => {
+              let photoToDelete = storage.refFromURL(`${entity.img}`) 
+              db.collection('articles').doc(entity.id).delete().then(()=>{
+                photoToDelete.delete()
+              })
+            }}/>
         </div>
       ))}
     </>

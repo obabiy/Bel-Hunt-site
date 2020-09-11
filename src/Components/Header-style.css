@@ -1,5 +1,6 @@
 *{
     font-family: Mariupol;
+    box-sizing: border-box;
 }
 
 #header{
@@ -22,7 +23,6 @@
     box-sizing:border-box;
     width: auto;
     max-width:100%;
-
 }
 
 /* Компоненты верхней части Header */
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
 
-    font-size: 1.2rem;
+    font-size: 18px;
     color: white;
 }
 
@@ -75,6 +75,7 @@
 #navHeader{
     align-items: center;
     color: #1F1F1F;
+    font-size: 13px;
 }
 
 #navHeader button{
@@ -112,7 +113,7 @@
 
     background: white;
 
-    top: 28px;
+    top: 200%;
     left: -30%;
 
     z-index: 100;
@@ -135,13 +136,9 @@
     align-items: start;
 }
 
-#navGallery li{
+#navGallery ul a{
+    color: #666;
     padding-left: 10%;
-    color: #666;
-}
-
-#navGallery li a{
-    color: #666;
 }
 
 #buttonHuntingNav{
@@ -150,7 +147,6 @@
     width: 190px;
     height: 40px;
     border-radius: 4px;
-    border: 2px solid #309B1F;
 
     color: white;
 
@@ -158,7 +154,6 @@
     align-items: center;
     justify-content: space-around;
 
-    font-size: 0.8rem;
     font-weight: lighter;
 
     position: relative;
@@ -177,7 +172,7 @@
 
     position: absolute;
 
-    top: 38px;
+    top: 90%;
 
     z-index: 100;
     background-color: white;
@@ -187,25 +182,23 @@
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 
     list-style-type: none;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 #navHunting li{
-    margin-left: 10%;
-    color: #666666;
+    width: 100%;
 }
 
 #navHunting li a{
     text-decoration: none;
     color: #666666;
 }
-
 
 #searchBox{
     height: 40px;
@@ -231,7 +224,6 @@
     align-items: center;
 
     font-family: Mariupol;
-    font-size: 13px;
 }
 
 #searchBut{

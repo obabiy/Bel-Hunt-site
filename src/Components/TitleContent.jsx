@@ -6,12 +6,17 @@ export default function TitleContent(props){
     
     const[boldTitlePart, setBoldTitlePart] = useState(props.boldTitlePart)
     const[remainingTitlePart, setRemainingTitleText] = useState(props.remainingTitlePart)
-    const[descriptionTitlePart, setDescriptionTitleText] = useState(props.descriptionTitlePart)
+    const[titleDescription, setTitleDescription] = useState(props.titleDescription)
     
     return(
         <div id = 'titleContent'>
             <span id = "mainTitle"><span>{boldTitlePart}</span> {remainingTitlePart}</span>
-            <span id = "descriptionTitle">{descriptionTitlePart}</span>
+            
+            {
+                titleDescription !== '' ? (
+                    <span id = "descriptionTitle">{titleDescription}</span>     
+                ) : null
+            }
         </div>
     );
 }

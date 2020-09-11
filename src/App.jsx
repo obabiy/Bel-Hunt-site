@@ -1,7 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
+
+import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -15,6 +17,9 @@ import SignIn from "./Components/AdminPanel/SignIn";
 import { AuthProvider } from "./auth";
 import PrivateRoute from './PrivateRoute'
 
+import { db } from './firebase'
+import $ from 'jquery'
+
 
 // ReactDOM.render((
 //   <Router>
@@ -23,18 +28,41 @@ import PrivateRoute from './PrivateRoute'
 // ), document.getElementById('root'))
 
 export default function App() {
-  function scrollPage() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const [animalsPages, setAnimalsPages] = useState([]);
+  const [buttonScrollTop, setButtonScrollTop] = useState(false)
+
+  $(window).scroll(()=>{
+    let scrollY = window.pageYOffset
+    if(scrollY > 500)
+      setButtonScrollTop(true)
+    else
+      setButtonScrollTop(false)
+  })
+
+  const scrollPageUp = () => {
+    $('html, body').animate({scrollTop: 0},500);
   }
+
+  useEffect( () => {
+    db.collection('articles').onSnapshot(
+      (snapshot) => {
+        setAnimalsPages( snapshot.docs.map((doc)=>({
+          title: doc.data().title,
+          titleDescription: doc.data().titleDescription,
+          text: doc.data().text,
+          imageUrl: doc.data().imageUrl,
+          slug: doc.data().slug,
+          id: doc.id
+        })))
+      }
+    )
+  }, []);
 
   return (
     <AuthProvider>
       <Router>
         <div id="siteContainer">
-          <Header />
+          <Header/>
 
           <Route path="/signInAdmin">
             <SignIn />
@@ -46,7 +74,7 @@ export default function App() {
             <HomePage />
           </Route>
 
-          <Route path="/elkHunting">
+          {/* <Route path="/elkHunting">
             <CurrentAnimalContent
               boldTitlePart="Охота на лося"
               remainingTitlePart="в Беларуссии"
@@ -156,19 +184,44 @@ export default function App() {
               imgSrc="img/elkTrophy.jpg"
               textContent="В мире существует более 110 видов уток. В Белоруссии охота разрешена на следующих уток: кряква (Anas platyrhynchos), серая утка (Anas strepera), широконоска (Anas clypeata), чирок трескунок (Anas querquedula), чирок свистунок (Anas crecca), чернеть хохлатая (Aythya fuligula), нырок красноголовый (Aythya ferina), чомга или поганка большая (Podiceps cristatus), лысуха (Fulica atra).<br/><br/>В Белоруссии один из способов охоты на этих птиц – это охота с подсадной уткой. Она приманивает селезней своим криком, а охотник, заблаговременно спрятавшийся в шалаше или другом специальном укрытии, стреляет их. Если охотник умеет подражать голосу различных уток и имеет хорошие манки, полезно время от времени, особенно завидев пролетающую стайку, подать голос. Иногда с помощью манка можно подманить и летящего селезня, если подсадная замолчала или не замечает его. При стрельбе по утке необходимо быть осторожным, чтобы не попасть в подсадную утку.<br/><br/>Охота с подхода в Белоруссии проводится с открытия летней стрельбы уток. Охотник или несколько охотников идя вдоль берега или по воде водоемa, где держатся утки, вcпугивают и стреляют их при взлете.<br/><br/>Охота с лодки в Белоруссии проводится на реках или озерах с заболоченными или сильно заросшими берегами, где невозможно пройти. Обычно два охотника плывут на лодке по озеру или по реке. Один из них ведет лодку, управляя веслом или шестом, а другой, сидя или стоя на носу лодки, стреляет взлетающих уток.<br/><br/>Охота на утку на перелетах. В Белоруссии после окончания осенней линьки, когда взрослые утки надевают новый наряд, а молодняк становится на крыло, утки начинают совершать ежедневные перелёты с мест сна к месту кормёжки и обратно. В период этих перелётов птицы придерживаются одних и тех же маршрутов, что позволяет предсказать их появление, занимая соответствующую позицию для стрельбы."
             />
-          </Route>
+          </Route> */}
+
+          {
+            animalsPages.map((page)=>(
+              <Route path={`/${page.slug}`}>
+                <CurrentAnimalContent 
+                  key = {page.id}
+                  title = {page.title}
+                  titleDescription = {page.titleDescription}               
+                  text = {page.text}
+                  imageUrl = {page.imageUrl}
+                />
+              </Route>
+            ))
+          }
 
           <Route path="/prices">
             <Prices />
           </Route>
 
-          <Route path="/galleryTrophy">{<Gallery type="trophy" />}</Route>
+          <Route path="/galleryTrophy">
+            <Gallery type="trophy" />
+          </Route>
 
-          <Route path="/galleryHouses">{<Gallery type="houses" />}</Route>
-
-          <button id="scrollTop" onClick={scrollPage}>
-            CLICK
-          </button>
+          <Route path="/galleryHouses">
+            <Gallery type="houses" />
+          </Route>
+          {
+            buttonScrollTop ? (
+              <div id = 'scrollButtonContainer'>
+                <ArrowUpwardRoundedIcon
+                  id="scrollTop"
+                  onClick={scrollPageUp}
+                />
+              </div>
+            ) : null
+          }
+            
           <Footer />
         </div>
       </Router>

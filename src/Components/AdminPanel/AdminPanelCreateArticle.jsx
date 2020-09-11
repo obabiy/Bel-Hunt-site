@@ -10,6 +10,7 @@ import { Button } from "@material-ui/core";
 
 function AdminPanelCreateArticle() {
   const [title, setTitle] = useState("");
+  const [titleDescription, setTitleDescription] = useState('');
   const [articleText, setArticleText] = useState("");
   const [image, setImage] = useState(null);
   const [slug, setSlug] = useState('');
@@ -51,6 +52,7 @@ function AdminPanelCreateArticle() {
           .then((url) => {
             db.collection("articles").add({
               title: title,
+              titleDescription: titleDescription,
               text: articleText,
               imageUrl: url,
               slug: slug
@@ -60,6 +62,7 @@ function AdminPanelCreateArticle() {
             setArticleText('')
             setTitle('')
             setSlug('')
+            setTitleDescription('')
             inputImgUpl.value = ''
           });
       }
@@ -70,11 +73,21 @@ function AdminPanelCreateArticle() {
     <div id="articleCreate">
       <label for = 'article__title'>Заголовок:</label>
       <input
-      id = 'article__title'
+        id = 'article__title'
         type="text"
         value={title}
         onChange={(e) => {
           setTitle(e.target.value);
+        }}
+      />
+      <label for = 'article__titleDescription'>Краткое описание под заглавием:</label>
+      <input
+        id = 'article__titleDescription'
+        type="text"
+        placeholder = 'необязательно'
+        value={titleDescription}
+        onChange={(e) => {
+          setTitleDescription(e.target.value);
         }}
       />
       <label for = 'article__editor'>Текст:</label>
