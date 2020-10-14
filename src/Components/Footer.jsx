@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 import './Footer-style.css'
-
 import { Link } from 'react-router-dom'
-
 import { db } from '../firebase'
+import { FormattedMessage } from 'react-intl'
 
 function Footer(){  
     const [pages, setPages] = useState([]);
@@ -24,7 +23,9 @@ function Footer(){
             <img id = "footerTransition" src = 'https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2Ffooter-transition.png?alt=media&token=3d32d695-1b7f-447b-a6a2-cf9cf9c61334' no-repeat/>
             <div id = "footer">
                 <div className="footerPart" id = "footerPartHunt">
-                    <h4>Охота</h4>
+                    <h4>
+                        <FormattedMessage id = 'footer_text_hunting' />
+                    </h4>
                     <div className="certainAnimalFooterMenu">
 
                         {
@@ -48,16 +49,18 @@ function Footer(){
                 </div>
 
                 <div className="footerPart">
-                        <h4>Главное меню</h4>
+                        <h4>
+                            <FormattedMessage id = 'footer_text_mainMenu'/>
+                        </h4>
                         <div className="certainAnimalFooterMenu">
-                            <li className = "footerMenuMain"><Link to = "/prices">Цена и сроки</Link></li>
-                            <li className = "footerMenuMain">Галерея</li>
-                            <li className = "footerMenuMain">Контакты</li>
+                            <li className = "footerMenuMain"><Link to = "/prices"><FormattedMessage id = 'footer_button_prices'/></Link></li>
+                            <li className = "footerMenuMain"><FormattedMessage id = 'footer_button_galleryTrophy'/></li>
+                            <li className = "footerMenuMain"><FormattedMessage id = 'footer_button_galleryHouses'/></li>
                         </div>
                 </div>
                 
                 <div className="footerPart" id = "footerContacts">
-                    <h4>Контакты</h4>
+                    <h4><FormattedMessage id = 'footer_text_contacts'/></h4>
                     <div className="certainAnimalFooterMenu">
                         <span>+37 (529) 640 47 77</span>
                         <div id="iconsFooter">

@@ -68,6 +68,14 @@
 #langSelectHeader div{
     margin-right: 10%;
 }
+
+#langSelectHeader select{
+    outline: none;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #666666;
+    color: white;
+}
 /* Компоненты верхней части Header */
 
 

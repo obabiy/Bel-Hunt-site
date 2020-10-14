@@ -18,7 +18,7 @@ export default function CurrentNews(props){
         <div id = "newsContent">
             <TitleContent boldTitlePart = {`${titlePart}`}/>
             <img id = "mainPhoto" src = {`${imgSrc}`}/>
-            <div id = "textContent"><Markup content = {textContent}/></div>
+            {/* <div id = "textContent"><Markup content = {textContent}/></div> */}
             
             <ContactsBlock/>
             <SeoBlock/>

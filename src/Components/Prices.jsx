@@ -9,7 +9,7 @@ import $ from 'jquery'
 export default function Prices(){
 
     const open = (event) => {
-        $(event.currentTarget).toggleClass('active').siblings().slideToggle(500);
+        $(event.currentTarget).siblings().slideToggle(500);
     }
 
     return(

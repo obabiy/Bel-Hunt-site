@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 
-import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
+import ArrowUpwardRoundedIcon from "@material-ui/icons/ArrowUpwardRounded";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -15,66 +15,97 @@ import Gallery from "./Components/Gallery/Gallery";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
 import SignIn from "./Components/AdminPanel/SignIn";
 import { AuthProvider } from "./auth";
-import PrivateRoute from './PrivateRoute'
+import PrivateRoute from "./PrivateRoute";
 
-import { db } from './firebase'
-import $ from 'jquery'
+import { db } from "./firebase";
+import $ from "jquery";
 
+import { IntlProvider } from "react-intl";
+import { Context } from "./context";
 
-// ReactDOM.render((
-//   <Router>
-//     <App />
-//   </Router>
-// ), document.getElementById('root'))
+import translationEN from "./locales/en/translation.json";
+import translationRU from "./locales/ru/translation.json";
+
+import "./i18n";
+
+const messages = {
+  EN: translationEN,
+  RU: translationRU,
+};
 
 export default function App() {
-  const [animalsPages, setAnimalsPages] = useState([]);
-  const [buttonScrollTop, setButtonScrollTop] = useState(false)
+  let location = useLocation().pathname;
+  const isAdminPanel = /admin/.test(location);
 
-  $(window).scroll(()=>{
-    let scrollY = window.pageYOffset
-    if(scrollY > 500)
-      setButtonScrollTop(true)
-    else
-      setButtonScrollTop(false)
-  })
+  const [animalsPages, setAnimalsPages] = useState([]);
+  const [buttonScrollTop, setButtonScrollTop] = useState(false);
+
+  const [locale, setLocale] = useState("RU");
+  const changeLocale = (locale) => {
+    setLocale(locale);
+  };
+
+  $(window).scroll(() => {
+    let scrollY = window.pageYOffset;
+    if (scrollY > 500) setButtonScrollTop(true);
+    else setButtonScrollTop(false);
+  });
 
   const scrollPageUp = () => {
-    $('html, body').animate({scrollTop: 0},500);
-  }
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  };
 
-  useEffect( () => {
-    db.collection('articles').onSnapshot(
-      (snapshot) => {
-        setAnimalsPages( snapshot.docs.map((doc)=>({
-          title: doc.data().title,
-          titleDescription: doc.data().titleDescription,
-          text: doc.data().text,
+  useEffect(() => {
+    db.collection("articles").onSnapshot((snapshot) => {
+      setAnimalsPages(
+        snapshot.docs.map((doc) => ({
+          titleRU: doc.data().titleRU,
+          titleEN: doc.data().titleEN,
+          titleDE: doc.data().titleDE,
+          titleFR: doc.data().titleFR,
+          titleITL: doc.data().titleITL,
+          titleESP: doc.data().titleESP,
+          titleDescriptionRU: doc.data().titleDescriptionRU,
+          titleDescriptionEN: doc.data().titleDescriptionEN,
+          titleDescriptionDE: doc.data().titleDescriptionDE,
+          titleDescriptionFR: doc.data().titleDescriptionFR,
+          titleDescriptionITL: doc.data().titleDescriptionITL,
+          titleDescriptionESP: doc.data().titleDescriptionESP,
+          textRU: doc.data().textRU,
+          textEN: doc.data().textEN,
+          textFR: doc.data().textFR,
+          textDE: doc.data().textDE,
+          textITL: doc.data().textITL,
+          textESP: doc.data().textESP,
           imageUrl: doc.data().imageUrl,
           slug: doc.data().slug,
-          id: doc.id
-        })))
-      }
-    )
+          id: doc.id,
+        }))
+      );
+    });
+    console.log(animalsPages)
   }, []);
 
   return (
-    <AuthProvider>
-      <Router>
-        <div id="siteContainer">
-          <Header/>
+    <IntlProvider locale={locale} messages={messages[locale]}>
+      <Context.Provider
+        value={{
+          changeLocale,
+        }}
+      >
+        <AuthProvider>
+          {isAdminPanel ? (
+            <PrivateRoute path="/admin" component={AdminPanel} />
+          ) : (
+            <div id="siteContainer">
+              <Header />
 
-          <Route path="/signInAdmin">
-            <SignIn />
-          </Route>
+              <Route path="/signInAdmin" component={SignIn} />
+              <Route exact path="/">
+                <HomePage />
+              </Route>
 
-          <PrivateRoute path="/admin" component={AdminPanel}/>
-
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-
-          {/* <Route path="/elkHunting">
+              {/* <Route path="/elkHunting">
             <CurrentAnimalContent
               boldTitlePart="Охота на лося"
               remainingTitlePart="в Беларуссии"
@@ -186,45 +217,58 @@ export default function App() {
             />
           </Route> */}
 
-          {
-            animalsPages.map((page)=>(
-              <Route path={`/${page.slug}`}>
-                <CurrentAnimalContent 
-                  key = {page.id}
-                  title = {page.title}
-                  titleDescription = {page.titleDescription}               
-                  text = {page.text}
-                  imageUrl = {page.imageUrl}
-                />
+              {animalsPages.map((page) => (
+                <Route path={`/${page.slug}`}>
+                  <CurrentAnimalContent
+                    key={page.id}
+                    titleRU={page.titleRU}
+                    titleEN={page.titleEN}
+                    titleFR={page.titleFR}
+                    titleDE={page.titleDE}
+                    titleITL={page.titleITL}
+                    titleESP={page.titleESP}
+                    titleDescriptionRU={page.titleDescriptionRU}
+                    titleDescriptionEN={page.titleDescriptionEN}
+                    titleDescriptionFR={page.titleDescriptionFR}
+                    titleDescriptionITL={page.titleDescriptionITL}
+                    titleDescriptionESP={page.titleDescriptionESP}
+                    titleDescriptionDE={page.titleDescriptionDE}
+                    textRU={page.textRU}
+                    textEN={page.textEN}
+                    textDE={page.textDE}
+                    textFR={page.textFR}
+                    textESP={page.textESP}
+                    textITL={page.textITL}
+                    imageUrl={page.imageUrl}
+                  />
+                </Route>
+              ))}
+
+              <Route path="/prices">
+                <Prices />
               </Route>
-            ))
-          }
 
-          <Route path="/prices">
-            <Prices />
-          </Route>
+              <Route path="/galleryTrophy">
+                <Gallery type="trophy" />
+              </Route>
 
-          <Route path="/galleryTrophy">
-            <Gallery type="trophy" />
-          </Route>
+              <Route path="/galleryHouses">
+                <Gallery type="houses" />
+              </Route>
+              {buttonScrollTop ? (
+                <div id="scrollButtonContainer">
+                  <ArrowUpwardRoundedIcon
+                    id="scrollTop"
+                    onClick={scrollPageUp}
+                  />
+                </div>
+              ) : null}
 
-          <Route path="/galleryHouses">
-            <Gallery type="houses" />
-          </Route>
-          {
-            buttonScrollTop ? (
-              <div id = 'scrollButtonContainer'>
-                <ArrowUpwardRoundedIcon
-                  id="scrollTop"
-                  onClick={scrollPageUp}
-                />
-              </div>
-            ) : null
-          }
-            
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+              <Footer />
+            </div>
+          )}
+        </AuthProvider>
+      </Context.Provider>
+    </IntlProvider>
   );
 }

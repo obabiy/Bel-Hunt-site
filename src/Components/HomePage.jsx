@@ -5,10 +5,13 @@ import "./HomePage-style.css";
 import DoublePartTitle from "./DoublePartTitle";
 import NewsCardHomePage from "./NewsCardHomePage";
 
-import {db} from '../firebase'
+import { db } from "../firebase";
+import { FormattedMessage, useIntl } from "react-intl";
+import ReactHtmlParser from "react-html-parser";
 
 export default function HomePage() {
-  const [news, setNews] = useState([]); 
+  const [news, setNews] = useState([]);
+  const intl = useIntl();
 
   useEffect(() => {
     db.collection("news")
@@ -27,30 +30,31 @@ export default function HomePage() {
   return (
     <div id="homePageContainer">
       <DoublePartTitle
-        firstPartBold="Охотимся на живность"
-        firstPartNormal=" на территории Белоруссии"
-        secondPartNormal="Добро пожаловать на наш сайт, посвященный организации охотничьих туров на "
-        secondPartColored="территории Белоруссии."
+        firstPartBold={<FormattedMessage id = 'homePage_title_huntingBel_bold'/>}
+        firstPartNormal={<FormattedMessage id = 'homePage_title_huntingBel_normal'/>}
+        secondPartNormal={<FormattedMessage id = 'homePage_title_description_huntingBel_normal'/>}
+        secondPartColored={<FormattedMessage id = 'homePage_title_description_huntingBel_colored'/>}
       />
       <div id="galleriesBlock">
         <div className="gallery" id="gal1">
           <div className="fadeBlock">
-            <span>Фото трофеев</span>
+            <span>
+              <FormattedMessage id="homePage_card_galleryTrophy" />
+            </span>
           </div>
         </div>
 
         <div className="gallery" id="gal2">
           <div className="fadeBlock">
-            <span>Охотничьи дома</span>
+            <span>
+              <FormattedMessage id="homePage_card_galleryHouses" />
+            </span>
           </div>
         </div>
       </div>
 
       <div id="descriptionText">
-        За годы работы в сфере охотничьего туризма был накоплен уникальный опыт,
-        который наряду с самой обширной базой контактов с охотничьими
-        хозяйствами и Национальными Парками позволяет составлять и реализовывать
-        программы охот, максимально соответствующие запросам клиентов.
+        <FormattedMessage id="homePage_text_description" />
       </div>
 
       <img
@@ -61,28 +65,38 @@ export default function HomePage() {
 
       <div id="animalNavContainer">
         <div className="titleNav">
-          На кого <span>охотимся?</span>
+          {ReactHtmlParser(
+            intl.formatMessage({ id: "homePage_title_animalsToHunt" })
+          )}
         </div>
         <div id="animalNavBlockContainer">
           <div className="navPart">
             <div className="navCard1">
               <div className="fadeBlock">
-                <span>Охота на лося</span>
+                <span>
+                  <FormattedMessage id="homePage_card_mooseHunting" />
+                </span>
               </div>
             </div>
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на зубра</span>
+                <span>
+                  <FormattedMessage id="homePage_card_wisentHunting" />
+                </span>
               </div>
             </div>
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на кабана</span>
+                <span>
+                  <FormattedMessage id="homePage_card_boarHunting" />
+                </span>
               </div>
             </div>
             <div className="navCard1">
               <div className="fadeBlock">
-                <span>Охота на косулю</span>
+                <span>
+                  <FormattedMessage id="homePage_card_roeDeerHunting" />
+                </span>
               </div>
             </div>
           </div>
@@ -90,29 +104,39 @@ export default function HomePage() {
           <div className="navPart">
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на волка</span>
+                <span>
+                  <FormattedMessage id="homePage_card_wolfHunting" />
+                </span>
               </div>
             </div>
 
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на глухаря</span>
+                <span>
+                  <FormattedMessage id="homePage_card_capercaillieHunting" />
+                </span>
               </div>
             </div>
             <div className="navCard1">
               <div className="fadeBlock">
-                <span>Охота на вальдшнепа</span>
+                <span>
+                  <FormattedMessage id="homePage_card_woodcockHunting" />
+                </span>
               </div>
             </div>
 
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на куропатку</span>
+                <span>
+                  <FormattedMessage id="homePage_card_partridgeHuning" />
+                </span>
               </div>
             </div>
             <div className="navCard2">
               <div className="fadeBlock">
-                <span>Охота на бекаса</span>
+                <span>
+                  <FormattedMessage id="homePage_card_snipeHunting" />
+                </span>
               </div>
             </div>
           </div>
@@ -126,7 +150,9 @@ export default function HomePage() {
 
       <div id="huntingNewsContainer">
         <div className="titleNav">
-          <span>Охотничьи</span> новости
+          {ReactHtmlParser(
+            intl.formatMessage({ id: "homePage_title_huntingNews" })
+          )}
         </div>
 
         <div id="newsContainer">
@@ -139,11 +165,11 @@ export default function HomePage() {
       <img className="transition" src="./img/top-transition.png" />
 
       <div id="feedbackForm">
-        <div id="titleFeedback">Возникли вопросы?</div>
-        <div id="descriptionFeedback">Мы ответим на ваши вопросы</div>
+        <div id="titleFeedback"><FormattedMessage id = 'homePage_title_feedbackForm'/></div>
+        <div id="descriptionFeedback"><FormattedMessage id = 'homePage_title_description_feedbackForm'/></div>
         <div id="inputBlock">
-          <input placeholder="Ваш телефон или E-mail" />
-          <button>Отправить</button>
+          <input placeholder={intl.formatMessage({id: 'homePage_placeholder_feedbackForm_email'})}/>
+          <button><FormattedMessage id = 'homePage_button_feedbackForm'/></button>
         </div>
       </div>
     </div>

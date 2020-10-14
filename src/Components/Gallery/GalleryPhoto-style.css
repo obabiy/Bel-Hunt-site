@@ -4,7 +4,7 @@
     max-width: 200px;
     height: 150px;
     overflow: hidden;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 #galleryPhoto img{
@@ -14,7 +14,7 @@
 }
 
 #gallery:hover img{
-    opacity: .8;
+    opacity: .9;
     transition: .8s opacity;
 }
 
@@ -26,6 +26,16 @@
 #galleryPhoto > #deleteButton{
     position: absolute;
     margin: auto;
+}
+
+#photoFullScreen{
+    width: 100vw;
+    height: 100wh;
+    position: fixed;
+    background-color: aqua;
+    display: block;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (max-width: 1366px){
