@@ -56,34 +56,30 @@ export default function App() {
   };
 
   useEffect(() => {
-    db.collection("articles").onSnapshot((snapshot) => {
-      setAnimalsPages(
-        snapshot.docs.map((doc) => ({
-          titleRU: doc.data().titleRU,
-          titleEN: doc.data().titleEN,
-          titleDE: doc.data().titleDE,
-          titleFR: doc.data().titleFR,
-          titleITL: doc.data().titleITL,
-          titleESP: doc.data().titleESP,
-          titleDescriptionRU: doc.data().titleDescriptionRU,
-          titleDescriptionEN: doc.data().titleDescriptionEN,
-          titleDescriptionDE: doc.data().titleDescriptionDE,
-          titleDescriptionFR: doc.data().titleDescriptionFR,
-          titleDescriptionITL: doc.data().titleDescriptionITL,
-          titleDescriptionESP: doc.data().titleDescriptionESP,
-          textRU: doc.data().textRU,
-          textEN: doc.data().textEN,
-          textFR: doc.data().textFR,
-          textDE: doc.data().textDE,
-          textITL: doc.data().textITL,
-          textESP: doc.data().textESP,
-          imageUrl: doc.data().imageUrl,
-          slug: doc.data().slug,
-          id: doc.id,
-        }))
-      );
-    });
-    console.log(animalsPages)
+    db.collection('articles').onSnapshot(snapshot => {
+      setAnimalsPages( snapshot.docs.map(doc => ({
+        titleRU: doc.data().titleRU,
+        titleEN: doc.data().titleEN,
+        titleDE: doc.data().titleDE,
+        titleFR: doc.data().titleFR,
+        titleESP: doc.data().titleESP,
+        titleITL: doc.data().titleITL,
+        titleDescriptionRU: doc.data().titleDescriptionRU,
+        titleDescriptionEN: doc.data().titleDescriptionEN,
+        titleDescriptionFR: doc.data().titleDescriptionFR,
+        titleDescriptionDE: doc.data().titleDescriptionDE,
+        titleDescriptionITL: doc.data().titleDescriptionITL,
+        titleDescriptionESP: doc.data().titleDescriptionESP,
+        textRU: doc.data().textRU,
+        textEN: doc.data().textEN,
+        textDE: doc.data().textDE,
+        textFR: doc.data().textFR,
+        textESP: doc.data().textESP,
+        textITL: doc.data().textITL,
+        slug: doc.data().slug,
+        imgUrl: doc.data().imageUrl,
+      })))
+    })
   }, []);
 
   return (
@@ -219,7 +215,7 @@ export default function App() {
 
               {animalsPages.map((page) => (
                 <Route path={`/${page.slug}`}>
-                  <CurrentAnimalContent
+                  {/* <CurrentAnimalContent
                     key={page.id}
                     titleRU={page.titleRU}
                     titleEN={page.titleEN}
@@ -240,6 +236,9 @@ export default function App() {
                     textESP={page.textESP}
                     textITL={page.textITL}
                     imageUrl={page.imageUrl}
+                  /> */}
+                  <CurrentAnimalContent
+                    page = {page}
                   />
                 </Route>
               ))}

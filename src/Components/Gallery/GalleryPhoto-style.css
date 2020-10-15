@@ -38,6 +38,7 @@
     left: 0;
 }
 
+
 @media screen and (max-width: 1366px){
     #galleryPhoto{
         margin: .3vw;

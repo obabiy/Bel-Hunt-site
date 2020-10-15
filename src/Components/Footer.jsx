@@ -3,19 +3,28 @@ import React, { useState, useEffect } from 'react'
 import './Footer-style.css'
 import { Link } from 'react-router-dom'
 import { db } from '../firebase'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 function Footer(){  
     const [pages, setPages] = useState([]);
 
+    const locale = useIntl().locale
+
     useEffect(() => {
-        db.collection('articles').onSnapshot((snapshot)=>{
-            setPages(snapshot.docs.map((doc) => ({
-                slug: doc.data().slug,
-                title: doc.data().title
-            })))
-        })
-    }, []);
+    db.collection("articles").onSnapshot((snapshot) => {
+      setPages(
+        snapshot.docs.map((doc) => ({
+          titleRU: doc.data().titleRU,
+          titleEN: doc.data().titleEN,
+          titleDE: doc.data().titleDE,
+          titleFR: doc.data().titleFR,
+          titleESP: doc.data().titleESP,
+          titleITL: doc.data().titleITL,
+          slug: doc.data().slug,
+        }))
+      );
+    });
+  }, []);
     
     return(
         <div id = "footerContainer">
@@ -30,7 +39,7 @@ function Footer(){
 
                         {
                             pages.map((page) => (
-                            <Link to = {`/${page.slug}`}><li className = 'footerMenuHunting'>{page.title}</li></Link>
+                            <Link to = {`/${page.slug}`}><li className = 'footerMenuHunting'>{eval(`page.title${locale}`)}</li></Link>
                             ))
                         }
 

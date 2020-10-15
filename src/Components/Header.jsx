@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 import { Context } from "../context";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -15,6 +15,8 @@ function Header() {
 
   const { changeLocale } = useContext(Context);
   const intl = useIntl();
+
+  let titleLanguage = `title${intl.locale}`
 
   const scrollPageUp = () => {
     $("html, body").animate({ scrollTop: 0 }, 500);
@@ -57,6 +59,10 @@ function Header() {
   };
 
   useEffect(() => {
+    scrollPageUp();
+  }, [location]);
+
+  useEffect(() => {
     db.collection("articles").onSnapshot((snapshot) => {
       setPages(
         snapshot.docs.map((doc) => ({
@@ -64,77 +70,13 @@ function Header() {
           titleEN: doc.data().titleEN,
           titleDE: doc.data().titleDE,
           titleFR: doc.data().titleFR,
-          titleITL: doc.data().titleITL,
           titleESP: doc.data().titleESP,
-          currentLocaleTitle: function (){
-            switch (intl.locale) {
-              case "RU":
-                return doc.data().titleRU;
-                break;
-              case "EN":
-                return doc.data().titleEN;
-                break;
-              case "DE":
-                return doc.data().titleDE;
-                break;
-              case "FR":
-                return doc.data().titleFR;
-                break;
-              case "ITL":
-                return doc.data().titleITL;
-                break;
-              case "ESP":
-                return doc.data().titleESP;
-                break;
-              default:
-            }
-          },
+          titleITL: doc.data().titleITL,
           slug: doc.data().slug,
-          id: doc.id,
         }))
       );
     });
   }, []);
-
-  useEffect(() => {
-    switch (intl.locale) {
-      case "RU":
-        pages.map((page) => {
-          return (page.currentLocaleTitle = page.titleRU);
-        });
-        break;
-      case "EN":
-        pages.map((page) => {
-          return (page.currentLocaleTitle = page.titleEN);
-        });
-        break;
-      case "DE":
-        pages.map((page) => {
-          page.currentLocaleTitle = page.titleDE;
-        });
-        break;
-      case "FR":
-        pages.map((page) => {
-          page.currentLocaleTitle = page.titleFR;
-        });
-        break;
-      case "ITL":
-        pages.map((page) => {
-          page.currentLocaleTitle = page.titleITL;
-        });
-        break;
-      case "ESP":
-        pages.map((page) => {
-          page.currentLocaleTitle = page.titleESP;
-        });
-        break;
-      default:
-    }
-  }, [intl.locale]);
-
-  useEffect(() => {
-    scrollPageUp();
-  }, [location]);
 
   return (
     <div id="header">
@@ -180,22 +122,10 @@ function Header() {
           <div id="navHunting">
             <ul>
               {pages.map((page) => (
-                <li onClick={openHuntNav}>
-                  <Link to={`/${page.slug}`}>{page.currentLocaleTitle}</Link>
+                <li onClick={openGalleryNav}>
+                  <Link to={`/${page.slug}`}>{ eval(`page.title${intl.locale}`) }</Link>
                 </li>
               ))}
-
-              {/* <li><Link to="/elkHunting">Охота на лося</Link></li>
-                        <li><Link to="/bisonHunting">Охота на зубра</Link></li>
-                        <li><Link to="/boarHunting">Охота на кабана</Link></li>
-                        <li><Link to="/roeDeerHunting">Охота на косулю</Link></li>
-                        <li><Link to="/deerHunting">Охота на оленя</Link></li>
-                        <li><Link to="/wolfHunting">Охота на волка</Link></li>
-                        <li><Link to="/capercaillieHunting">Охота на глухаря</Link></li>
-                        <li><Link to="/woodcockHunting">Охота на вальдшнепа</Link></li>
-                        <li><Link to="/partridgeHunting">Охота на куропатку</Link></li>
-                        <li><Link to="/snipeHunting">Охота на бекаса</Link></li>
-                        <li><Link to="/duckHunting">Охота на утку</Link></li> */}
             </ul>
           </div>
         </div>
