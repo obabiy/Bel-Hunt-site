@@ -2,9 +2,8 @@
     font-family: Mariupol;
 }
 
-
 #homePageContainer{
-    width: 1366px;
+    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -15,12 +14,12 @@
 
     margin-bottom: 40px;
 
-    padding: 0 82px;
     box-sizing: border-box;
 }
 
 #galleriesBlock{
     width: 100%;
+    padding: 0 8%;
     border: 1px solid red;
     display: flex;
     justify-content: space-between;
@@ -72,7 +71,7 @@
 }
 
 #animalNavContainer{
-    min-width: 1366px;
+    width: 100%;
     
     display: flex;
     flex-direction: column;
@@ -81,7 +80,7 @@
     background: #F0F0F0;
 
     
-    padding: 40px 82px 60px 82px;
+    padding: 40px 8% 60px;
     box-sizing: border-box;
 }
 
@@ -168,17 +167,18 @@
 #newsContainer{
     border: 1px solid red;
     width: 100%;
+    padding: 0 8%;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
 .transition{
-    width: 1366px;
+    width: 100%;
 }
 
 #feedbackForm{
-    min-width: 1366px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -242,21 +242,21 @@
     color: white;
 }
 
-@media screen and (max-width: 1366px){
+@media screen and (min-width: 1440px){
     #homePageContainer{
         width: 100%;
-        padding: 0 72px;
     }
     #animalNavContainer{
-        min-width: 100vw;
-        padding: 0 72px;
+        padding: 0 10%;
+    }
+    #newsContainer{
+        padding: 0 10%;
     }
     #feedbackForm{
-        min-width: 100vw;
-        padding: 50px 72px 170px;
+        padding: 50px 10% 170px;
     }
-    .transition{
-        width: 100vw;
+    #galleriesBlock{
+        padding: 0 10%;
     }
 }
 
@@ -265,7 +265,12 @@
         padding: 0 10px;
     }
     #animalNavContainer{
-        min-width: 100vw;
+        padding: 0 10px;
+    }
+    #newsContainer{
+        padding: 0 10px;
+    }
+    #galleriesBlock{
         padding: 0 10px;
     }
     #feedbackForm{

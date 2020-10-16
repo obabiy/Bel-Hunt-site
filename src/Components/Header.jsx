@@ -122,7 +122,7 @@ function Header() {
           <div id="navHunting">
             <ul>
               {pages.map((page) => (
-                <li onClick={openGalleryNav}>
+                <li onClick={openHuntNav}>
                   <Link to={`/${page.slug}`}>{ eval(`page.title${intl.locale}`) }</Link>
                 </li>
               ))}
