@@ -1,47 +1,57 @@
-#adminPanelBlock{
-    width: 100%;
-    border: 1px solid green;
-    display: flex;
+*{
+    box-sizing: border-box;
 }
 
-#navBarAdmin{
-    width: 30%;
-    border: 1px solid #000;
+#adminPanelBlock{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #E5E5E5;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 }
 
-#navBarAdmin button{
-    height: 50px;
+#headerAdmin{
     width: 100%;
+    padding: 25px 15px;
+    display: flex;
+    box-shadow: 0px 12px 20px -7px rgba(0,0,0,0.1);
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    margin-bottom: 60px;
+    z-index: 100;
+}
 
+#headerAdmin > button{
+    margin-left: auto;
+    color: gray;
+}
+
+#headerAdmin > * {
+    margin: 0px 10px;
+}
+
+#headerAdmin button{
+    font-size: 16px;
     outline: none;
-    background-color: #222221;
+    background-color: white;
     border: none;
-    border-radius: 4px;
-
-    font-size: 1rem;
-    color: white;
 }
 
-#navBarAdmin a:hover{
-    width: 97%;
-    transition: 0.2s;
-}
-
-#navBarAdmin a{
-    text-decoration: none;
-    color: white;
-    width: 95%;
-    margin-bottom: 10px;
+#navButtons{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
 }
 
 #controlBlock{
-    width: 70%;
-    border: 1px solid red;
-
-    display: flex;
-    justify-content: center;
+    max-width: 1100px;
+    height: auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 4px;
 }
