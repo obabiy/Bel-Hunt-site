@@ -16,7 +16,7 @@ function Header() {
   const { changeLocale } = useContext(Context);
   const intl = useIntl();
 
-  let titleLanguage = `title${intl.locale}`
+  let titleLanguage = `title${intl.locale}`;
 
   const scrollPageUp = () => {
     $("html, body").animate({ scrollTop: 0 }, 500);
@@ -109,6 +109,34 @@ function Header() {
             <option>ESP</option>
           </select>
         </div>
+        <div id="burgerMenu__mobile">
+          <div id="container">
+            <nav id="menu">
+              <ul id="burger__list">
+                <Link to="/prices">
+                  <li className="burger__link">
+                    <FormattedMessage id="header_button_prices" />
+                  </li>
+                </Link>
+                <Link to="/galleryTrophy">
+                  <li className="burger__link">
+                    <FormattedMessage id="header_button_galleryTrophy" />
+                  </li>
+                </Link>
+                <Link to="/galleryHouses">
+                  <li className="burger__link">
+                    <FormattedMessage id="header_button_galleryHouses" />
+                  </li>
+                </Link>
+                <Link to="/#">
+                  <li className="burger">
+                    <FormattedMessage id="header_button_contacts" />
+                  </li>
+                </Link>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
 
       <div className="headerPart" id="navHeader">
@@ -123,7 +151,9 @@ function Header() {
             <ul>
               {pages.map((page) => (
                 <li onClick={openHuntNav}>
-                  <Link to={`/${page.slug}`}>{ eval(`page.title${intl.locale}`) }</Link>
+                  <Link to={`/${page.slug}`}>
+                    {eval(`page.title${intl.locale}`)}
+                  </Link>
                 </li>
               ))}
             </ul>

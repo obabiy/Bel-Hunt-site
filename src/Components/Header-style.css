@@ -165,6 +165,7 @@
     font-weight: lighter;
 
     position: relative;
+    z-index: 100;
 }
 
 #navHunting{
@@ -249,13 +250,38 @@
 @media screen and (min-width: 1440px){
     .headerPart{
         padding: 0 10%;
-
     }
 }
 
 @media screen and (max-width:1024px){
     .headerPart{
         padding: 0 10px;
+    }
+}
+
+@media screen and (max-width:700px){
+    #sharingHeader{
+        display: none;
+    }
+    #langSelectHeader #number{
+        display: none;
+    }
+    
+    #navHeader > :not(:first-child){
+        display: none;
+    }
+    #navHeader{
+        justify-content: center;
+    }
+    #buttonHuntingNav{
+        width: 95%;
+        justify-content: flex-start;
+    }
+    #buttonHuntingNav > img, #header_button_hunting{
+        margin: 0 20px;
+    }
+    #buttonHuntingNav #vector{
+        margin-left: auto;
     }
 }
 

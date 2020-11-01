@@ -23,8 +23,8 @@ function CurrentAnimalContent({ page }) {
           <span id="descriptionTitle">{eval(`page.titleDescription${locale}`)}</span>
         ) : null}
       </div>
-      
-      <img id="mainPhoto" src={`${page.imgUrl}`} />
+      <div id = 'mainPhoto' style={{backgroundImage: `url(${page.imgUrl})`}}></div>
+
       <div id="textContent">{ReactHtmlParser(eval(`page.text${locale}`))}</div>
       <div id="galleryContainer">
         <div className="galleryPhoto">
@@ -49,7 +49,7 @@ function CurrentAnimalContent({ page }) {
         </div>
       </div>
       <ContactsBlock />
-      <SeoBlock />
+      <SeoBlock/>
     </div>
   );
 }

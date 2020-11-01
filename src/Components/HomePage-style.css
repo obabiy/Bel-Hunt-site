@@ -2,18 +2,18 @@
     font-family: Mariupol;
 }
 
+/* the same gallery container */
 #homePageContainer{
     width: 100%;
 
     display: flex;
     justify-content: center;
-
     flex-wrap: wrap;
 
     border: 1px solid green;
 
     margin-bottom: 40px;
-
+    
     box-sizing: border-box;
 }
 
@@ -243,9 +243,6 @@
 }
 
 @media screen and (min-width: 1440px){
-    #homePageContainer{
-        width: 100%;
-    }
     #animalNavContainer{
         padding: 0 10%;
     }
@@ -261,9 +258,6 @@
 }
 
 @media screen and (max-width: 1024px){
-    #homePageContainer{
-        padding: 0 10px;
-    }
     #animalNavContainer{
         padding: 0 10px;
     }
@@ -277,4 +271,8 @@
         min-width: 100vw;
         padding: 50px 10px 170px;
     }
+}
+
+@media screen and (max-width: 700px){
+    
 }

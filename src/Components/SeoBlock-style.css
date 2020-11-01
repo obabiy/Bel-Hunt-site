@@ -3,7 +3,12 @@
     display: flex;
     flex-direction: column;
 
+    padding: 0 8%;
     font-family: Mariupol;
+}
+
+#animalContent #seoBlock{
+    padding: 0;
 }
 
 #seoBlock span{
@@ -42,4 +47,16 @@
     background: none;
 
     padding:0;
+}
+
+@media screen and (min-width: 1440px){
+    #seoBlock{
+        padding: 0 10%;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #seoBlock{
+        padding: 0 10px;
+    }
 }

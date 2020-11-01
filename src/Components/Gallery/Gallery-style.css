@@ -1,5 +1,6 @@
+/* the same homePage container */
 #galleryContainer{
-    width: 1366px;
+    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -8,13 +9,13 @@
     border: 1px solid green;
 
     margin-bottom: 40px;
-    padding: 0 82px;
 
     box-sizing: border-box;
 }
 
 #gallery{
     width: 100%;
+    padding: 0 8%;
     border: 1px solid #000;
 
     display: flex;
@@ -24,15 +25,14 @@
     margin-bottom: 40px;
 }
 
-@media screen and (max-width: 1366px){
-    #galleryContainer{
-        width: 100%;
-        padding: 0 72px;
+@media screen and (min-width: 1440px){
+    #gallery{
+        padding: 0 10%;
     }
 }
 
 @media screen and (max-width: 1024px){
-    #galleryContainer{
+    #gallery{
         padding: 0 10px;
     }
 }

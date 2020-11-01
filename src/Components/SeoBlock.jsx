@@ -33,7 +33,6 @@ export default function SeoBlock() {
 
   return (
     <div id="seoBlock">
-      <script src="https://my.server.ru/jquery.min.js"></script>
       <span>
         <FormattedMessage id="seoBlock_title" />
       </span>
@@ -49,6 +48,7 @@ export default function SeoBlock() {
           src="https://firebasestorage.googleapis.com/v0/b/belhunt-bc08e.appspot.com/o/vectors%2FangleMore.svg?alt=media&token=30abff7e-a411-4490-ae0f-47ad8efcf751"
         />
       </button>
+      <script src="https://my.server.ru/jquery.min.js"></script>
     </div>
   );
 }
