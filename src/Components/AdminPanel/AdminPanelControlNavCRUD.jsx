@@ -10,6 +10,7 @@ import AdminPanelDeleteArticle from './AdminPanelDeleteArticle'
 import AdminPanelEditArticle from './AdminPanelEditArticle'
 import AdminPanelGalleryAddPhoto from './AdminPanelGalleryAddPhoto'
 import AdminPanelGalleryDeletePhoto from './AdminPanelGalleryDeletePhoto'
+import GalleryPhoto from '../Gallery/GalleryPhoto'
 
 export default function AdminPanelControlNavCRUD(){
     
@@ -19,11 +20,21 @@ export default function AdminPanelControlNavCRUD(){
 
     return(
         <div id = 'crudBlock'>
-            <div id = 'headerAdminPanel'>
+            <div id = 'sectionHeader'>
                 <div id = 'crudTitle'>
                     {/articles/.test(location) ? ('Статьи:') : null} 
                     {/galleries/.test(location) ? ('Галлереи:'):null}
                     {/news/.test(location) ? ('Новости:') : null}    
+                    {/prices/.test(location) ? ('Цены:') : null}    
+                </div>
+
+                <div id = 'sectionHeaderLang'>
+                    <div>RU</div>
+                    <div>EN</div>
+                    <div>DE</div>
+                    <div>FR</div>
+                    <div>ESP</div>
+                    <div>ITL</div>
                 </div>
 
                 <div id = 'navCRUDBlock'>
@@ -35,50 +46,68 @@ export default function AdminPanelControlNavCRUD(){
 
             <div id = 'operationBlock'>        
                 {
-                    /create/.test(location) ?                 //Creating something
+                    /articles/.test(location) ?
                     (
-                        type === 'articles' ? (
-                            <AdminPanelCreateArticle/>
-                        
-                        ): type === 'galleries' ? (
-                            <AdminPanelGalleryAddPhoto/>
-                        
-                        
-                        
-                        ) : type === 'news' ? (
-                            <AdminPanelCreateNews/>
-                        ) : null
-                    ) : /edit/.test(location) ?                 //editing something
+                        <AdminPanelExistantArticle/>
+                    ):
+                    /news/.test(location) ?
                     (
-                        type === 'articles' ? (
-                            <AdminPanelEditArticle/>
+                        <AdminPanelExistantNews/>
+                    ):
+                    /galleries/.test(location) ?
+                    (
+                        <p1></p1>
+                    ):
+                    (
+                        <p1></p1>
+                    )
+                    
+                    
+                    
+                    // /create/.test(location) ?                 //Creating something
+                    // (
+                    //     type === 'articles' ? (
+                    //         <AdminPanelCreateArticle/>
                         
-                        
-                        ): type === 'galleries' ? (
-                            <p>Edit gallery</p>
-                        
-                        
-                        
-                        ) : type === 'news' ? (
-                            <AdminPanelEditNews/>
-                        
-                        
-                        
-                        ) : null
-                    ) : /delete/.test(location) ? (             //deleting something
-                        type === 'articles' ? (
-                            <AdminPanelDeleteArticle/>
-                        
-                        
-                        ): type === 'galleries' ? (
-                            <AdminPanelGalleryDeletePhoto/>
+                    //     ): type === 'galleries' ? (
+                    //         <AdminPanelGalleryAddPhoto/>
                         
                         
                         
-                        ) : type === 'news' ? (
-                            <AdminPanelDeleteNews />
-                        ) : null
-                    ) : null
+                    //     ) : type === 'news' ? (
+                    //         <AdminPanelCreateNews/>
+                    //     ) : null
+                    // ) : /edit/.test(location) ?                 //editing something
+                    // (
+                    //     type === 'articles' ? (
+                    //         <AdminPanelEditArticle/>
+                        
+                        
+                    //     ): type === 'galleries' ? (
+                    //         <p>Edit gallery</p>
+                        
+                        
+                        
+                    //     ) : type === 'news' ? (
+                    //         <AdminPanelEditNews/>
+                        
+                        
+                        
+                    //     ) : null
+                    // ) : /delete/.test(location) ? (             //deleting something
+                    //     type === 'articles' ? (
+                    //         <AdminPanelDeleteArticle/>
+                        
+                        
+                    //     ): type === 'galleries' ? (
+                    //         <AdminPanelGalleryDeletePhoto/>
+                        
+                        
+                        
+                    //     ) : type === 'news' ? (
+                    //         <AdminPanelDeleteNews />
+                    //     ) : null
+                    // ) : null
                     
                 }
             </div>

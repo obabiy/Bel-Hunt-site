@@ -5,13 +5,26 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import $ from "jquery";
 
 function AdminPanelCreateArticleSpoiler({
-  language,
-  articleTitle,
-  articleTitleDescription,
-  articleText,
-  setArticleTitle,
-  setArticleTitleDescription,
-  setArticleText,
+  titleRU,
+  titleEN,
+  titleDE,
+  titleFR,
+  titleESP,
+  titleITL,
+  titleDescriptionRU,
+  titleDescriptionEN,
+  titleDescriptionDE,
+  titleDescriptionFR,
+  titleDescriptionITL,
+  titleDescriptionESP,
+  textRU,
+  textEN,
+  textDE,
+  textFR,
+  textITL,
+  textESP,
+  img,
+  slug
 }) {
   const open = (event) => {
     $(event.currentTarget).siblings().slideToggle(1000);
