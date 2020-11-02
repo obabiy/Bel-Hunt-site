@@ -91,7 +91,8 @@ export default function App() {
       >
         <AuthProvider>
           {isAdminPanel ? (
-            <PrivateRoute path="/admin" component={AdminPanel} />
+            // <PrivateRoute path="/admin" component={AdminPanel} />
+            <Route path='/admin'><AdminPanel/></Route>
           ) : (
             <div id="siteContainer">
               <Header />

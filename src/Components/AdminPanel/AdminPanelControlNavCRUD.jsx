@@ -12,6 +12,8 @@ import AdminPanelGalleryAddPhoto from './AdminPanelGalleryAddPhoto'
 import AdminPanelGalleryDeletePhoto from './AdminPanelGalleryDeletePhoto'
 import GalleryPhoto from '../Gallery/GalleryPhoto'
 
+import AdminPanelExistantNews from './AdminPanelExistantNews'
+
 export default function AdminPanelControlNavCRUD(){
     
     let location = useLocation().pathname
@@ -48,7 +50,8 @@ export default function AdminPanelControlNavCRUD(){
                 {
                     /articles/.test(location) ?
                     (
-                        <AdminPanelExistantArticle/>
+                        // <AdminPanelExistantArticle/> 
+                        null
                     ):
                     /news/.test(location) ?
                     (
@@ -110,6 +113,8 @@ export default function AdminPanelControlNavCRUD(){
                     // ) : null
                     
                 }
+
+                
             </div>
         </div>
     )
