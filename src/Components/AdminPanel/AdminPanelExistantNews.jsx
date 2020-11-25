@@ -12,7 +12,7 @@ export default function AdminPanelExistantNews(props) {
     title: "Создать новость",
     text: "Краткое описание",
     id: 1,
-  };
+  }
 
   useEffect(() => {
     db.collection("news")
@@ -31,11 +31,11 @@ export default function AdminPanelExistantNews(props) {
   return (
     <>
       <div className="pricesPart">
-        <AdminPanelExistantNewsSpoiler entity={templateEntity} isNew={true} />
+        <AdminPanelExistantNewsSpoiler key = {templateEntity.title} entity={templateEntity} isNew={true} />
       </div>
       {entities.map((entity) => (
         <div className="pricesPart">
-          <AdminPanelExistantNewsSpoiler entity={entity} isNew={false}/>
+          <AdminPanelExistantNewsSpoiler key = {entity.title} entity={entity} isNew={false} />
         </div>
       ))}
     </>

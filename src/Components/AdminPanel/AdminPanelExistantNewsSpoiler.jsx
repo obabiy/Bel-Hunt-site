@@ -10,6 +10,26 @@ export default function AdminPanelExistantNewsSpoiler({ entity, isNew }) {
   const [text, setText] = useState(entity.text);
   const [id, setId] = useState(entity.id);
 
+
+  const [titleRU, setTitleRU] = useState(entity.titleRU);
+  const [textRU, setTextRU] = useState(entity.textRU);
+
+  const [titleEN, setTitleEN] = useState(entity.titleEN);
+  const [textEN, setTextEN] = useState(entity.textEN);
+
+  const [titleDE, setTitleDE] = useState(entity.titleDE);
+  const [textDE, setTextDE] = useState(entity.textDE);
+
+  const [titleFR, setTitleFR] = useState(entity.titleFR);
+  const [textFR, setTextFR] = useState(entity.textFR);
+
+  const [titleESP, setTitleESP] = useState(entity.titleESP);
+  const [textESP, setTextESP] = useState(entity.textESP);
+
+  const [titleITL, setTitleITL] = useState(entity.titleITL);
+  const [textITL, setTextITL] = useState(entity.textITL);
+  
+
   const isNewNews = isNew ?? true;
 
   const open = (event) => {
@@ -42,9 +62,6 @@ export default function AdminPanelExistantNewsSpoiler({ entity, isNew }) {
     setText(entity.text);
   };
 
-//   useEffect(() => {
-//     document.querySelector(".two").style.display = "none";
-//   }, [open]);
 
   return (
     <div className="ap-news-container">
@@ -55,7 +72,10 @@ export default function AdminPanelExistantNewsSpoiler({ entity, isNew }) {
       <div className="titlePricesPart two">
         <div className="two-children-container">
         <label for="ap-news-title">Заголовок</label>
+
+        
         <input
+          
           value={title}
           id="ap-news-title"
           onChange={(e) => setTitle(e.target.value)}
@@ -66,6 +86,9 @@ export default function AdminPanelExistantNewsSpoiler({ entity, isNew }) {
           id="ap-news-text"
           onChange={(e) => setText(e.target.value)}
         />
+
+
+        
         <div className="ap-news-btns">
           {isNewNews ? null : (
             <button

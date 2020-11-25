@@ -22,21 +22,21 @@ export default function AdminPanel() {
       <div id="headerAdmin">
         <h2>BELHUNT</h2>
         <div id="navButtons">
-          <Link to="/admin/articles">
+          <Link to="/admin/articles/ru">
             <button>Услуги</button>
           </Link>
-          <Link to="/admin/prices">
+          <Link to="/admin/prices/ru">
             <button>Цены</button>
           </Link>
-          <Link to="/admin/news">
+          <Link to="/admin/news/ru">
             <button>Новости</button>
           </Link>
-          <Link to="/admin/galleries">
+          <Link to="/admin/galleries/ru">
             <button>Галереи</button>
           </Link>
         </div>
         <button onClick={signOut}>
-          Вийти
+          Выйти
         </button>
       </div>
       <div id="controlBlock">

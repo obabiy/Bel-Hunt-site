@@ -27,6 +27,11 @@
     display: flex;
     justify-content: space-between;
     color: grey;
+    cursor: pointer;
+}
+
+#ruButton{
+    color: green;
 }
 
 #navCRUDBlock{
