@@ -9,8 +9,8 @@ export default function AdminPanelExistantNews(props) {
   const [entities, setEntities] = useState([]);
 
   const templateEntity = {
-    title: "Создать новость",
-    text: "Краткое описание",
+    titleRU: "Создать новость",
+    textRU: "Краткое описание",
     id: 1,
   }
 
@@ -20,9 +20,19 @@ export default function AdminPanelExistantNews(props) {
       .onSnapshot((snapshot) => {
         setEntities(
           snapshot.docs.map((doc) => ({
-            title: doc.data().title,
-            text: doc.data().text,
             id: doc.id,
+            titleRU: doc.data().titleRU,
+            textRU: doc.data().textRU,
+            titleEN: doc.data().titleEN,
+            textEN: doc.data().textEN,
+            titleFR: doc.data().titleFR,
+            textFR: doc.data().textFR,
+            titleDE: doc.data().titleDE,
+            textDE: doc.data().textDE,
+            titleITL: doc.data().titleITL,
+            textITL: doc.data().textITL,
+            titleESP: doc.data().titleESP,
+            textESP: doc.data().textESP,
           }))
         );
       });
@@ -31,11 +41,11 @@ export default function AdminPanelExistantNews(props) {
   return (
     <>
       <div className="pricesPart">
-        <AdminPanelExistantNewsSpoiler key = {templateEntity.title} entity={templateEntity} isNew={true} />
+        <AdminPanelExistantNewsSpoiler key = {templateEntity.title} entity={templateEntity} isNew={true} location = {props.location}/>
       </div>
       {entities.map((entity) => (
         <div className="pricesPart">
-          <AdminPanelExistantNewsSpoiler key = {entity.title} entity={entity} isNew={false} />
+          <AdminPanelExistantNewsSpoiler key = {entity.title} entity={entity} isNew={false} location = {props.location}/>
         </div>
       ))}
     </>

@@ -1,12 +1,26 @@
 #cardContainer{
     width: 30%;
-    height: 200px;
+    height: 220px;
     margin-bottom: 15px;
-
+    position: relative;
+    background-color: #EBEBEB;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;    
+}
 
-    border: 1px solid #000;
+#newsCardContent{
+    margin-top: 40%;
+    line-height: 20px;
+    text-align: center;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    padding: 10px;
+}
+
+#newsCardImg{
+    position: absolute;
+    top: 20%;
+    margin: auto;
+    left: 0;
+    right: 0;
 }

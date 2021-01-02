@@ -16,12 +16,23 @@ export default function HomePage() {
   useEffect(() => {
     db.collection("news")
       .orderBy("timestamp", "desc")
+      .limit(3)
       .onSnapshot((snapshot) => {
         setNews(
           snapshot.docs.map((doc) => ({
-            title: doc.data().title,
-            text: doc.data().text,
             id: doc.id,
+            titleRU: doc.data().titleRU,
+            textRU: doc.data().textRU,
+            titleEN: doc.data().titleEN,
+            textEN: doc.data().textEN,
+            titleFR: doc.data().titleFR,
+            textFR: doc.data().textFR,
+            titleDE: doc.data().titleDE,
+            textDE: doc.data().textDE,
+            titleITL: doc.data().titleITL,
+            textITL: doc.data().textITL,
+            titleESP: doc.data().titleESP,
+            textESP: doc.data().textESP,
           }))
         );
       });
@@ -157,7 +168,7 @@ export default function HomePage() {
 
         <div id="newsContainer">
           {news.map((oneNews) => (
-            <NewsCardHomePage title={oneNews.title} text={oneNews.text} />
+            <NewsCardHomePage title={oneNews.titleRU} text={oneNews.textRU} />
           ))}
         </div>
       </div>

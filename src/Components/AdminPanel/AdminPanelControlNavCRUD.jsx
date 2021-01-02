@@ -98,7 +98,7 @@ export default function AdminPanelControlNavCRUD() {
         {
           /articles/.test(location) ? // <AdminPanelExistantArticle/>
           null : /news/.test(location) ? (
-            <AdminPanelExistantNews />
+            <AdminPanelExistantNews location = {location}/>
           ) : /galleries/.test(location) ? (
             <p1></p1>
           ) : (

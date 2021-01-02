@@ -169,8 +169,7 @@
     width: 100%;
     padding: 0 8%;
     display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+    justify-content: space-between;
 }
 
 .transition{
