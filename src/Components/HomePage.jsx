@@ -168,7 +168,7 @@ export default function HomePage() {
 
         <div id="newsContainer">
           {news.map((oneNews) => (
-            <NewsCardHomePage title={oneNews.titleRU} text={oneNews.textRU} />
+            <NewsCardHomePage content={oneNews} />
           ))}
         </div>
       </div>

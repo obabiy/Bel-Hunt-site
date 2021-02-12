@@ -8,16 +8,17 @@ import AdminPanelEditArticle from "./AdminPanelEditArticle";
 import AdminPanelGalleryAddPhoto from "./AdminPanelGalleryAddPhoto";
 import AdminPanelGalleryDeletePhoto from "./AdminPanelGalleryDeletePhoto";
 import GalleryPhoto from "../Gallery/GalleryPhoto";
+import AdminPanelExistantArticle from './AdminPanelExistantArticle'
 import { useHistory } from "react-router-dom";
-
+import { useIntl } from 'react-intl'
 import $ from "jquery";
 
 import AdminPanelExistantNews from "./AdminPanelExistantNews";
 
 export default function AdminPanelControlNavCRUD() {
+  const locale = useIntl().locale
   const history = useHistory();
   let location = useLocation().pathname;
-  let type = useParams().type;
   let rootPath = useRouteMatch().url;
 
   const highlightLang = (lang) => {
@@ -51,8 +52,8 @@ export default function AdminPanelControlNavCRUD() {
   };
 
   useEffect(() => {
-    highlightLang('ru')
-  }, [rootPath]);
+    setAdminContentLanguage('ru')
+  }, []);
 
   return (
     <div id="crudBlock">
@@ -96,9 +97,10 @@ export default function AdminPanelControlNavCRUD() {
 
       <div id="operationBlock">
         {
-          /articles/.test(location) ? // <AdminPanelExistantArticle/>
-          null : /news/.test(location) ? (
-            <AdminPanelExistantNews location = {location}/>
+          /articles/.test(location) ? 
+          // <AdminPanelExistantArticle location = {location}/> :
+          /news/.test(location) ? (
+          <AdminPanelExistantNews location = {location}/>
           ) : /galleries/.test(location) ? (
             <p1></p1>
           ) : (

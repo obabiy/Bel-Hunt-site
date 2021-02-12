@@ -22,16 +22,16 @@ export default function AdminPanel() {
       <div id="headerAdmin">
         <h2>BELHUNT</h2>
         <div id="navButtons">
-          <Link to="/admin/articles/ru">
+          <Link to="/admin/articles">
             <button>Услуги</button>
           </Link>
-          <Link to="/admin/prices/ru">
+          <Link to="/admin/prices">
             <button>Цены</button>
           </Link>
-          <Link to="/admin/news/ru">
+          <Link to="/admin/news">
             <button>Новости</button>
           </Link>
-          <Link to="/admin/galleries/ru">
+          <Link to="/admin/galleries">
             <button>Галереи</button>
           </Link>
         </div>
